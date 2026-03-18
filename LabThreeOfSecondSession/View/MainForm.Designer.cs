@@ -120,6 +120,7 @@
             listBoxRectangles.Name = "listBoxRectangles";
             listBoxRectangles.Size = new Size(227, 284);
             listBoxRectangles.TabIndex = 3;
+            listBoxRectangles.SelectedIndexChanged += RectangleListBox_SelectedIndexChanged;
             // 
             // labelColor
             // 
