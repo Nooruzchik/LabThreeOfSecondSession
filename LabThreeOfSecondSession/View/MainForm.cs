@@ -7,6 +7,9 @@ namespace LabThreeOfSecondSession
         private Model.Rectangle[] _rectangles;
         private Model.Rectangle _currentRectangle;
 
+        private Model.Film[] _movies;
+        private Model.Film _currentMovie;
+
         public MainForm()
         {
             InitializeComponent();
@@ -28,6 +31,29 @@ namespace LabThreeOfSecondSession
             for (int i = 0; i < _rectangles.Length; i++)
             {
                 listBoxRectangles.Items.Add($"Rectangle {i + 1}");
+            }
+
+
+            /*-------------------*/
+
+            _movies = new Model.Film[5];
+
+            for (int i = 0; i < _movies.Length; i++)
+            {
+                int yearMade = rand.Next(1900, 2027);
+                int duration = rand.Next(60, 301);
+                double rating = rand.Next(0, 11);
+                string genre = "Genre" + i;
+                string name = "Name" + i;
+
+
+
+                _movies[i] = new Model.Film(name, duration,yearMade, genre, rating);
+            }
+
+            for (int i = 0; i < _movies.Length; i++)
+            {
+                listBoxFilms.Items.Add($"Movie {i + 1}");
             }
         }
 
@@ -140,5 +166,11 @@ namespace LabThreeOfSecondSession
                 MessageBox.Show("Массив прямоугольников пуст!");
             }
         }
+
+
+        /*----------------------------------------------------------------------- */
+
+
+
     }
 }

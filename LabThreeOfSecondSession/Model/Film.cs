@@ -34,7 +34,7 @@ namespace LabThreeOfSecondSession.Model
             set
             {
                 if (value < 1900 || value > DateTime.Now.Year)
-                    throw new ArgumentException($"Год должен быть от 1900 до {DateTime.Now.Year}");
+                    throw new ArgumentException("Год должен быть от 1900 до 2026");
                 yearMade = value;
             }
         }

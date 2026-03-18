@@ -41,14 +41,18 @@
             labelLength = new Label();
             tabPage2 = new TabPage();
             groupBox1 = new GroupBox();
-            listBoxFilms = new ListBox();
-            buttonFindTwo = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            labelDuration = new Label();
-            labelYearMade = new Label();
             labelRating = new Label();
+            labelYearMade = new Label();
+            labelDuration = new Label();
+            textBoxRating = new TextBox();
+            textBoxYearMade = new TextBox();
+            textBoxDuration = new TextBox();
+            buttonFindTwo = new Button();
+            listBoxFilms = new ListBox();
+            labelName = new Label();
+            textBoxName = new TextBox();
+            textBoxGenre = new TextBox();
+            lableGenre = new Label();
             tabPageClasses.SuspendLayout();
             tabPage1.SuspendLayout();
             RectanglesGroupBox.SuspendLayout();
@@ -178,12 +182,16 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(lableGenre);
+            groupBox1.Controls.Add(textBoxGenre);
+            groupBox1.Controls.Add(textBoxName);
+            groupBox1.Controls.Add(labelName);
             groupBox1.Controls.Add(labelRating);
             groupBox1.Controls.Add(labelYearMade);
             groupBox1.Controls.Add(labelDuration);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(textBoxRating);
+            groupBox1.Controls.Add(textBoxYearMade);
+            groupBox1.Controls.Add(textBoxDuration);
             groupBox1.Controls.Add(buttonFindTwo);
             groupBox1.Controls.Add(listBoxFilms);
             groupBox1.Dock = DockStyle.Fill;
@@ -194,52 +202,14 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Films";
             // 
-            // listBoxFilms
+            // labelRating
             // 
-            listBoxFilms.FormattingEnabled = true;
-            listBoxFilms.Location = new Point(21, 52);
-            listBoxFilms.Name = "listBoxFilms";
-            listBoxFilms.Size = new Size(241, 284);
-            listBoxFilms.TabIndex = 0;
-            // 
-            // buttonFindTwo
-            // 
-            buttonFindTwo.Location = new Point(304, 307);
-            buttonFindTwo.Name = "buttonFindTwo";
-            buttonFindTwo.Size = new Size(146, 29);
-            buttonFindTwo.TabIndex = 1;
-            buttonFindTwo.Text = "Find";
-            buttonFindTwo.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(304, 75);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(146, 27);
-            textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(304, 145);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(146, 27);
-            textBox2.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(304, 229);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(146, 27);
-            textBox3.TabIndex = 4;
-            // 
-            // labelDuration
-            // 
-            labelDuration.AutoSize = true;
-            labelDuration.Location = new Point(304, 52);
-            labelDuration.Name = "labelDuration";
-            labelDuration.Size = new Size(67, 20);
-            labelDuration.TabIndex = 5;
-            labelDuration.Text = "Duration";
+            labelRating.AutoSize = true;
+            labelRating.Location = new Point(499, 54);
+            labelRating.Name = "labelRating";
+            labelRating.Size = new Size(52, 20);
+            labelRating.TabIndex = 7;
+            labelRating.Text = "Rating";
             // 
             // labelYearMade
             // 
@@ -250,14 +220,84 @@
             labelYearMade.TabIndex = 6;
             labelYearMade.Text = "YearMade";
             // 
-            // labelRating
+            // labelDuration
             // 
-            labelRating.AutoSize = true;
-            labelRating.Location = new Point(304, 206);
-            labelRating.Name = "labelRating";
-            labelRating.Size = new Size(52, 20);
-            labelRating.TabIndex = 7;
-            labelRating.Text = "Rating";
+            labelDuration.AutoSize = true;
+            labelDuration.Location = new Point(305, 264);
+            labelDuration.Name = "labelDuration";
+            labelDuration.Size = new Size(67, 20);
+            labelDuration.TabIndex = 5;
+            labelDuration.Text = "Duration";
+            // 
+            // textBoxRating
+            // 
+            textBoxRating.Location = new Point(499, 77);
+            textBoxRating.Name = "textBoxRating";
+            textBoxRating.Size = new Size(146, 27);
+            textBoxRating.TabIndex = 4;
+            // 
+            // textBoxYearMade
+            // 
+            textBoxYearMade.Location = new Point(304, 145);
+            textBoxYearMade.Name = "textBoxYearMade";
+            textBoxYearMade.Size = new Size(146, 27);
+            textBoxYearMade.TabIndex = 3;
+            // 
+            // textBoxDuration
+            // 
+            textBoxDuration.Location = new Point(305, 287);
+            textBoxDuration.Name = "textBoxDuration";
+            textBoxDuration.Size = new Size(146, 27);
+            textBoxDuration.TabIndex = 2;
+            // 
+            // buttonFindTwo
+            // 
+            buttonFindTwo.Location = new Point(499, 143);
+            buttonFindTwo.Name = "buttonFindTwo";
+            buttonFindTwo.Size = new Size(146, 29);
+            buttonFindTwo.TabIndex = 1;
+            buttonFindTwo.Text = "Find";
+            buttonFindTwo.UseVisualStyleBackColor = true;
+            // 
+            // listBoxFilms
+            // 
+            listBoxFilms.FormattingEnabled = true;
+            listBoxFilms.Location = new Point(21, 52);
+            listBoxFilms.Name = "listBoxFilms";
+            listBoxFilms.Size = new Size(241, 284);
+            listBoxFilms.TabIndex = 0;
+            // 
+            // labelName
+            // 
+            labelName.AutoSize = true;
+            labelName.Location = new Point(304, 54);
+            labelName.Name = "labelName";
+            labelName.Size = new Size(49, 20);
+            labelName.TabIndex = 8;
+            labelName.Text = "Name";
+            // 
+            // textBoxName
+            // 
+            textBoxName.Location = new Point(304, 77);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(146, 27);
+            textBoxName.TabIndex = 9;
+            // 
+            // textBoxGenre
+            // 
+            textBoxGenre.Location = new Point(304, 214);
+            textBoxGenre.Name = "textBoxGenre";
+            textBoxGenre.Size = new Size(146, 27);
+            textBoxGenre.TabIndex = 10;
+            // 
+            // lableGenre
+            // 
+            lableGenre.AutoSize = true;
+            lableGenre.Location = new Point(305, 191);
+            lableGenre.Name = "lableGenre";
+            lableGenre.Size = new Size(48, 20);
+            lableGenre.TabIndex = 11;
+            lableGenre.Text = "Genre";
             // 
             // MainForm
             // 
@@ -295,10 +335,14 @@
         private Label labelRating;
         private Label labelYearMade;
         private Label labelDuration;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox textBoxRating;
+        private TextBox textBoxYearMade;
+        private TextBox textBoxDuration;
         private Button buttonFindTwo;
         private ListBox listBoxFilms;
+        private TextBox textBoxName;
+        private Label labelName;
+        private Label lableGenre;
+        private TextBox textBoxGenre;
     }
 }
