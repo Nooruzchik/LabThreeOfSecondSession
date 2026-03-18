@@ -50,7 +50,6 @@ namespace LabThreeOfSecondSession.Model
                 }
             }
         }
-
         public Contact(string name, string number, string email)
         {
             Name = name;

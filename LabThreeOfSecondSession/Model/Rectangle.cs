@@ -11,7 +11,6 @@ namespace LabThreeOfSecondSession.Model
         private double length;
         private double width;
         public string Color { get; set; }
-
         public double Length
         {
             get {  return length; }

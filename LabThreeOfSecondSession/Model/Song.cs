@@ -11,7 +11,6 @@ namespace LabThreeOfSecondSession.Model
         private int during;
         public string name { get; set; }
         public string autor {  get; set; }
-
         public int During
         {
             get {  return during; }

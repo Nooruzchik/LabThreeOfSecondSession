@@ -38,7 +38,6 @@ namespace LabThreeOfSecondSession.Model
                 hours = value;
             }
         }
-
         public int Grade
         {
             get { return grade; }

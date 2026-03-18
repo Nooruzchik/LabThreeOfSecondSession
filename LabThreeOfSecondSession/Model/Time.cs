@@ -44,7 +44,6 @@ namespace LabThreeOfSecondSession.Model
                 second = value;
             }
         }
-
         // Конструктор с параметрами (нужен по пункту 7)
         public Time(int hour, int minute, int second)
         {

@@ -11,7 +11,6 @@ namespace LabThreeOfSecondSession.Model
         public string DepartmentPoint { get; set; }
         public string Destination { get; set; }
         private int flightTime;
-
         public int FlightTime
         {
             get{return flightTime;}
