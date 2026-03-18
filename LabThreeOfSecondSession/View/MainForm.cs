@@ -23,6 +23,11 @@ namespace LabThreeOfSecondSession
                 _rectangles[i] = new Model.Rectangle(length, width, color);
             }
             
+
+            for (int i = 0; i < _rectangles.Length; i++)
+            {
+                listBoxRectangles.Items.Add($"Rectangle {i + 1}");
+            }
         }
     }
 }

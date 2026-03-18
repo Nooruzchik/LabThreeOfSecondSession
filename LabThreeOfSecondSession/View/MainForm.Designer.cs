@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tabControl1 = new TabControl();
+            tabPageClasses = new TabControl();
             tabPage1 = new TabPage();
             RectanglesGroupBox = new GroupBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            listBox1 = new ListBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            button1 = new Button();
-            tabControl1.SuspendLayout();
+            buttonFind = new Button();
+            textBoxColor = new TextBox();
+            textBoxWidth = new TextBox();
+            textBoxLength = new TextBox();
+            listBoxRectangles = new ListBox();
+            labelColor = new Label();
+            labelWidth = new Label();
+            labelLength = new Label();
+            tabPageClasses.SuspendLayout();
             tabPage1.SuspendLayout();
             RectanglesGroupBox.SuspendLayout();
             SuspendLayout();
             // 
-            // tabControl1
+            // tabPageClasses
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(0, 0);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(800, 450);
-            tabControl1.TabIndex = 0;
+            tabPageClasses.Controls.Add(tabPage1);
+            tabPageClasses.Dock = DockStyle.Fill;
+            tabPageClasses.Location = new Point(0, 0);
+            tabPageClasses.Name = "tabPageClasses";
+            tabPageClasses.SelectedIndex = 0;
+            tabPageClasses.Size = new Size(800, 450);
+            tabPageClasses.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -67,14 +67,14 @@
             // 
             // RectanglesGroupBox
             // 
-            RectanglesGroupBox.Controls.Add(button1);
-            RectanglesGroupBox.Controls.Add(textBox3);
-            RectanglesGroupBox.Controls.Add(textBox2);
-            RectanglesGroupBox.Controls.Add(textBox1);
-            RectanglesGroupBox.Controls.Add(listBox1);
-            RectanglesGroupBox.Controls.Add(label3);
-            RectanglesGroupBox.Controls.Add(label2);
-            RectanglesGroupBox.Controls.Add(label1);
+            RectanglesGroupBox.Controls.Add(buttonFind);
+            RectanglesGroupBox.Controls.Add(textBoxColor);
+            RectanglesGroupBox.Controls.Add(textBoxWidth);
+            RectanglesGroupBox.Controls.Add(textBoxLength);
+            RectanglesGroupBox.Controls.Add(listBoxRectangles);
+            RectanglesGroupBox.Controls.Add(labelColor);
+            RectanglesGroupBox.Controls.Add(labelWidth);
+            RectanglesGroupBox.Controls.Add(labelLength);
             RectanglesGroupBox.Dock = DockStyle.Fill;
             RectanglesGroupBox.Location = new Point(3, 3);
             RectanglesGroupBox.Name = "RectanglesGroupBox";
@@ -83,80 +83,80 @@
             RectanglesGroupBox.TabStop = false;
             RectanglesGroupBox.Text = "Rectangles";
             // 
-            // label1
+            // buttonFind
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(317, 41);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 20);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            buttonFind.Location = new Point(317, 296);
+            buttonFind.Name = "buttonFind";
+            buttonFind.Size = new Size(151, 29);
+            buttonFind.TabIndex = 7;
+            buttonFind.Text = "Find";
+            buttonFind.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // textBoxColor
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(317, 106);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 20);
-            label2.TabIndex = 1;
-            label2.Text = "label2";
+            textBoxColor.Location = new Point(317, 227);
+            textBoxColor.Name = "textBoxColor";
+            textBoxColor.Size = new Size(151, 27);
+            textBoxColor.TabIndex = 6;
             // 
-            // label3
+            // textBoxWidth
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(317, 191);
-            label3.Name = "label3";
-            label3.Size = new Size(50, 20);
-            label3.TabIndex = 2;
-            label3.Text = "label3";
+            textBoxWidth.Location = new Point(317, 143);
+            textBoxWidth.Name = "textBoxWidth";
+            textBoxWidth.Size = new Size(151, 27);
+            textBoxWidth.TabIndex = 5;
             // 
-            // listBox1
+            // textBoxLength
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(20, 41);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(227, 284);
-            listBox1.TabIndex = 3;
+            textBoxLength.Location = new Point(317, 64);
+            textBoxLength.Name = "textBoxLength";
+            textBoxLength.Size = new Size(151, 27);
+            textBoxLength.TabIndex = 4;
             // 
-            // textBox1
+            // listBoxRectangles
             // 
-            textBox1.Location = new Point(317, 64);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(151, 27);
-            textBox1.TabIndex = 4;
+            listBoxRectangles.FormattingEnabled = true;
+            listBoxRectangles.Location = new Point(20, 41);
+            listBoxRectangles.Name = "listBoxRectangles";
+            listBoxRectangles.Size = new Size(227, 284);
+            listBoxRectangles.TabIndex = 3;
             // 
-            // textBox2
+            // labelColor
             // 
-            textBox2.Location = new Point(317, 143);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(151, 27);
-            textBox2.TabIndex = 5;
+            labelColor.AutoSize = true;
+            labelColor.Location = new Point(317, 191);
+            labelColor.Name = "labelColor";
+            labelColor.Size = new Size(45, 20);
+            labelColor.TabIndex = 2;
+            labelColor.Text = "Color";
             // 
-            // textBox3
+            // labelWidth
             // 
-            textBox3.Location = new Point(317, 227);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(151, 27);
-            textBox3.TabIndex = 6;
+            labelWidth.AutoSize = true;
+            labelWidth.Location = new Point(317, 106);
+            labelWidth.Name = "labelWidth";
+            labelWidth.Size = new Size(49, 20);
+            labelWidth.TabIndex = 1;
+            labelWidth.Text = "Width";
             // 
-            // button1
+            // labelLength
             // 
-            button1.Location = new Point(317, 296);
-            button1.Name = "button1";
-            button1.Size = new Size(151, 29);
-            button1.TabIndex = 7;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            labelLength.AutoSize = true;
+            labelLength.Location = new Point(317, 41);
+            labelLength.Name = "labelLength";
+            labelLength.Size = new Size(54, 20);
+            labelLength.TabIndex = 0;
+            labelLength.Text = "Length";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(tabControl1);
+            Controls.Add(tabPageClasses);
             Name = "MainForm";
             Text = "Form1";
-            tabControl1.ResumeLayout(false);
+            tabPageClasses.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             RectanglesGroupBox.ResumeLayout(false);
             RectanglesGroupBox.PerformLayout();
@@ -165,16 +165,16 @@
 
         #endregion
 
-        private TabControl tabControl1;
+        private TabControl tabPageClasses;
         private TabPage tabPage1;
         private GroupBox RectanglesGroupBox;
-        private Button button1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private ListBox listBox1;
-        private Label label3;
-        private Label label2;
-        private Label label1;
+        private Button buttonFind;
+        private TextBox textBoxColor;
+        private TextBox textBoxWidth;
+        private TextBox textBoxLength;
+        private ListBox listBoxRectangles;
+        private Label labelColor;
+        private Label labelWidth;
+        private Label labelLength;
     }
 }
