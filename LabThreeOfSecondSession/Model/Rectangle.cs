@@ -6,34 +6,36 @@ using System.Threading.Tasks;
 
 namespace LabThreeOfSecondSession.Model
 {
-    internal class Rectangle
+    public class Rectangle   // сделано public
     {
-        private double length;
-        private double width;
+        private double _length;
+        private double _width;
+
         public string Color { get; set; }
+
         public double Length
         {
-            get {  return length; }
+            get { return _length; }
             set
             {
                 if (value <= 0)
-                    throw new ArgumentException("Длинна должна быть положительной");
-                length = value;
+                    throw new ArgumentException("Длина должна быть положительной");
+                _length = value;
             }
         }
 
         public double Width
         {
-            get { return width; }
+            get { return _width; }
             set
             {
                 if (value <= 0)
-                    throw new Exception("Ширина должна быть положительной");
-                width = value;
+                    throw new ArgumentException("Ширина должна быть положительной");
+                _width = value;
             }
         }
 
-        // Конструктор с параметрами (инициализация через свойства!)
+        // Конструктор с параметрами (использует свойства)
         public Rectangle(double length, double width, string color)
         {
             Length = length;
@@ -41,9 +43,7 @@ namespace LabThreeOfSecondSession.Model
             Color = color;
         }
 
-        // Конструктор без параметров 
-        public Rectangle()
-        {
-        }
+        // Конструктор без параметров
+        public Rectangle() { }
     }
 }

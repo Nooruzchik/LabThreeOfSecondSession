@@ -12,21 +12,8 @@ namespace LabThreeOfSecondSession.Model
     {
         private int hours;
         private int grade;
-        private string disciplineName;
-        private string teachersName;
-
-        // Свойства с проверками
-        public string DisciplineName
-        {
-            get { return disciplineName; }
-            set { disciplineName = value; }  
-        }
-
-        public string TeachersName
-        {
-            get { return teachersName; }
-            set { teachersName = value; }    
-        }
+        public string DisciplineName;
+        public string TeachersName;
 
         public int Hours
         {

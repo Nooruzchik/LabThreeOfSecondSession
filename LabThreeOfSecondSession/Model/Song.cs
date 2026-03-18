@@ -9,8 +9,8 @@ namespace LabThreeOfSecondSession.Model
     internal class Song
     {
         private int during;
-        public string name { get; set; }
-        public string autor {  get; set; }
+        public string Name { get; set; }
+        public string Autor {  get; set; }
         public int During
         {
             get {  return during; }
@@ -23,9 +23,9 @@ namespace LabThreeOfSecondSession.Model
         }
         public Song(string name, int during, string autor)
         {
-            this.name = name;
-            this.during = during;
-            this.autor = autor;
+            Name = name;
+            During = during;
+            Autor = autor;
         }
 
         public Song()
