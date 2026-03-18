@@ -6,6 +6,7 @@ namespace LabThreeOfSecondSession
     {
         private Model.Rectangle[] _rectangles;
         private Model.Rectangle _currentRectangle;
+
         public MainForm()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace LabThreeOfSecondSession
             }
         }
 
-       
+
 
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -44,9 +45,101 @@ namespace LabThreeOfSecondSession
                 textBoxWidth.Text = _currentRectangle.Width.ToString();
                 textBoxColor.Text = _currentRectangle.Color;
 
-                // Сброс цвета фона (если ранее был красным)
+                // Сброс цвета фона 
                 textBoxLength.BackColor = Color.White;
                 textBoxWidth.BackColor = Color.White;
+            }
+        }
+
+        private void textBoxLength_changed(object sender, EventArgs e)
+        {
+            if (_currentRectangle == null) { return; }
+
+            try
+            {
+                double newLength = Convert.ToDouble(textBoxLength.Text);
+
+                _currentRectangle.Length = newLength;
+                textBoxLength.BackColor = Color.White;
+            }
+            catch (FormatException)
+            {
+                textBoxLength.BackColor = Color.LightPink;
+            }
+            catch (ArgumentException)
+            {
+                textBoxLength.BackColor = Color.LightPink;
+            }
+            catch (Exception)
+            {
+                textBoxLength.BackColor = Color.LightPink;
+            }
+        }
+
+        private void textBoxWidth_changed(object sender, EventArgs e)
+        {
+            if (_currentRectangle == null) { return; }
+
+            try
+            {
+                double newWidth = Convert.ToDouble(textBoxWidth.Text);
+
+                _currentRectangle.Width = newWidth;
+                textBoxWidth.BackColor = Color.White;
+            }
+            catch (FormatException)
+            {
+                textBoxWidth.BackColor = Color.LightPink;
+            }
+            catch (ArgumentException)
+            {
+                textBoxWidth.BackColor = Color.LightPink;
+            }
+            catch (Exception)
+            {
+                textBoxWidth.BackColor = Color.LightPink;
+            }
+        }
+
+        private void textBoxColor_TextChanged(object sender, EventArgs e)
+        {
+            if (_currentRectangle != null)
+            {
+                _currentRectangle.Color = textBoxColor.Text;
+            }
+        }
+
+        private int FindRectangleWithMaxWidth(Model.Rectangle[] rectangles)
+        {
+            if (rectangles == null || rectangles.Length == 0)
+                return -1;
+
+            int maxIndex = 0;
+            double maxWidth = rectangles[0].Width;
+
+            for (int i = 1; i < rectangles.Length; i++)
+            {
+                if (rectangles[i].Width > maxWidth)
+                {
+                    maxWidth = rectangles[i].Width;
+                    maxIndex = i;
+                }
+            }
+            return maxIndex;
+        }
+
+
+
+        private void btnFind_click(object sender, EventArgs e)
+        {
+            int index = FindRectangleWithMaxWidth(_rectangles);
+            if (index != -1)
+            {
+                listBoxRectangles.SelectedIndex = index;
+            }
+            else
+            {
+                MessageBox.Show("Массив прямоугольников пуст!");
             }
         }
     }

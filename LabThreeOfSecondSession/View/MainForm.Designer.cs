@@ -91,6 +91,7 @@
             buttonFind.TabIndex = 7;
             buttonFind.Text = "Find";
             buttonFind.UseVisualStyleBackColor = true;
+            buttonFind.Click += btnFind_click;
             // 
             // textBoxColor
             // 
@@ -98,6 +99,7 @@
             textBoxColor.Name = "textBoxColor";
             textBoxColor.Size = new Size(151, 27);
             textBoxColor.TabIndex = 6;
+            textBoxColor.TextChanged += textBoxColor_TextChanged;
             // 
             // textBoxWidth
             // 
@@ -105,6 +107,7 @@
             textBoxWidth.Name = "textBoxWidth";
             textBoxWidth.Size = new Size(151, 27);
             textBoxWidth.TabIndex = 5;
+            textBoxWidth.TextChanged += textBoxWidth_changed;
             // 
             // textBoxLength
             // 
@@ -112,6 +115,7 @@
             textBoxLength.Name = "textBoxLength";
             textBoxLength.Size = new Size(151, 27);
             textBoxLength.TabIndex = 4;
+            textBoxLength.TextChanged += textBoxLength_changed;
             // 
             // listBoxRectangles
             // 
