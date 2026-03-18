@@ -128,8 +128,6 @@ namespace LabThreeOfSecondSession
             return maxIndex;
         }
 
-
-
         private void btnFind_click(object sender, EventArgs e)
         {
             int index = FindRectangleWithMaxWidth(_rectangles);

@@ -39,14 +39,27 @@
             labelColor = new Label();
             labelWidth = new Label();
             labelLength = new Label();
+            tabPage2 = new TabPage();
+            groupBox1 = new GroupBox();
+            listBoxFilms = new ListBox();
+            buttonFindTwo = new Button();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            labelDuration = new Label();
+            labelYearMade = new Label();
+            labelRating = new Label();
             tabPageClasses.SuspendLayout();
             tabPage1.SuspendLayout();
             RectanglesGroupBox.SuspendLayout();
+            tabPage2.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // tabPageClasses
             // 
             tabPageClasses.Controls.Add(tabPage1);
+            tabPageClasses.Controls.Add(tabPage2);
             tabPageClasses.Dock = DockStyle.Fill;
             tabPageClasses.Location = new Point(0, 0);
             tabPageClasses.Name = "tabPageClasses";
@@ -153,6 +166,99 @@
             labelLength.TabIndex = 0;
             labelLength.Text = "Length";
             // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(groupBox1);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Size = new Size(792, 417);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Movies";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(labelRating);
+            groupBox1.Controls.Add(labelYearMade);
+            groupBox1.Controls.Add(labelDuration);
+            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(buttonFindTwo);
+            groupBox1.Controls.Add(listBoxFilms);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.Location = new Point(0, 0);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(792, 417);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Films";
+            // 
+            // listBoxFilms
+            // 
+            listBoxFilms.FormattingEnabled = true;
+            listBoxFilms.Location = new Point(21, 52);
+            listBoxFilms.Name = "listBoxFilms";
+            listBoxFilms.Size = new Size(241, 284);
+            listBoxFilms.TabIndex = 0;
+            // 
+            // buttonFindTwo
+            // 
+            buttonFindTwo.Location = new Point(304, 307);
+            buttonFindTwo.Name = "buttonFindTwo";
+            buttonFindTwo.Size = new Size(146, 29);
+            buttonFindTwo.TabIndex = 1;
+            buttonFindTwo.Text = "Find";
+            buttonFindTwo.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(304, 75);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(146, 27);
+            textBox1.TabIndex = 2;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(304, 145);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(146, 27);
+            textBox2.TabIndex = 3;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(304, 229);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(146, 27);
+            textBox3.TabIndex = 4;
+            // 
+            // labelDuration
+            // 
+            labelDuration.AutoSize = true;
+            labelDuration.Location = new Point(304, 52);
+            labelDuration.Name = "labelDuration";
+            labelDuration.Size = new Size(67, 20);
+            labelDuration.TabIndex = 5;
+            labelDuration.Text = "Duration";
+            // 
+            // labelYearMade
+            // 
+            labelYearMade.AutoSize = true;
+            labelYearMade.Location = new Point(304, 122);
+            labelYearMade.Name = "labelYearMade";
+            labelYearMade.Size = new Size(75, 20);
+            labelYearMade.TabIndex = 6;
+            labelYearMade.Text = "YearMade";
+            // 
+            // labelRating
+            // 
+            labelRating.AutoSize = true;
+            labelRating.Location = new Point(304, 206);
+            labelRating.Name = "labelRating";
+            labelRating.Size = new Size(52, 20);
+            labelRating.TabIndex = 7;
+            labelRating.Text = "Rating";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -165,6 +271,9 @@
             tabPage1.ResumeLayout(false);
             RectanglesGroupBox.ResumeLayout(false);
             RectanglesGroupBox.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -181,5 +290,15 @@
         private Label labelColor;
         private Label labelWidth;
         private Label labelLength;
+        private TabPage tabPage2;
+        private GroupBox groupBox1;
+        private Label labelRating;
+        private Label labelYearMade;
+        private Label labelDuration;
+        private TextBox textBox3;
+        private TextBox textBox2;
+        private TextBox textBox1;
+        private Button buttonFindTwo;
+        private ListBox listBoxFilms;
     }
 }
