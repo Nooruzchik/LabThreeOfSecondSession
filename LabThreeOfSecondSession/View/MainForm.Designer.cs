@@ -267,6 +267,7 @@
             textBoxRating.Name = "textBoxRating";
             textBoxRating.Size = new Size(146, 27);
             textBoxRating.TabIndex = 4;
+            textBoxRating.TextChanged += textBoxRating_changed;
             // 
             // textBoxYearMade
             // 

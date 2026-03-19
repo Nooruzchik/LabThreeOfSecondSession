@@ -34,14 +34,14 @@ namespace LabThreeOfSecondSession
             }
 
 
-            /*-------------------*/
+            /*-------------------------------------------------*/
 
             _movies = new Model.Film[5];
 
             for (int i = 0; i < _movies.Length; i++)
             {
                 int yearMade = rand.Next(1900, 2027);
-                int duration = rand.Next(60, 301);
+                int duration = rand.Next(60, 200);
                 double rating = rand.Next(0, 11);
                 string genre = "Genre" + i;
                 string name = "Name" + i;
@@ -180,6 +180,40 @@ namespace LabThreeOfSecondSession
                 textBoxGenre.Text = _currentMovie.Genre;
                 textBoxDuration.Text = _currentMovie.Duration.ToString();
                 textBoxRating.Text = _currentMovie.Rating.ToString();
+            }
+
+            // —брос цвета фона 
+            textBoxName.BackColor = Color.White;
+            textBoxGenre.BackColor = Color.White;
+            textBoxRating.BackColor = Color.White;
+            textBoxYearMade.BackColor = Color.White;
+            textBoxDuration.BackColor = Color.White;
+        }
+
+        private void textBoxRating_changed(object sender, EventArgs e)
+        {
+            if (_currentMovie == null) { return; }
+
+            try
+            {
+                double newRating = Convert.ToDouble(textBoxRating.Text);
+
+                if (newRating > 0 & newRating <= 10)
+                {
+                    _currentMovie.Rating = newRating;
+                }
+            }
+            catch (FormatException)
+            {
+                textBoxRating.BackColor = Color.LightPink;
+            }
+            catch (ArgumentException)
+            {
+                textBoxRating.BackColor = Color.LightPink;
+            }
+            catch (Exception)
+            {
+                textBoxRating.BackColor = Color.LightPink;
             }
         }
         private int FindMovieMaxRating(Model.Film[] movies)
