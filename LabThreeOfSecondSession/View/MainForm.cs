@@ -48,7 +48,7 @@ namespace LabThreeOfSecondSession
 
 
 
-                _movies[i] = new Model.Film(name, duration,yearMade, genre, rating);
+                _movies[i] = new Model.Film(name, duration, yearMade, genre, rating);
             }
 
             for (int i = 0; i < _movies.Length; i++)
@@ -166,11 +166,52 @@ namespace LabThreeOfSecondSession
                 MessageBox.Show("Массив прямоугольников пуст!");
             }
         }
-
-
         /*----------------------------------------------------------------------- */
+        private void FilmsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxFilms.SelectedIndex >= 0)
+            {
+                // Получаем выбранный прямоугольник из массива
+                _currentMovie = _movies[listBoxFilms.SelectedIndex];
 
+                // Отображаем его значения в текстовых полях
+                textBoxName.Text = _currentMovie.Name;
+                textBoxYearMade.Text = _currentMovie.YearMade.ToString();
+                textBoxGenre.Text = _currentMovie.Genre;
+                textBoxDuration.Text = _currentMovie.Duration.ToString();
+                textBoxRating.Text = _currentMovie.Rating.ToString();
+            }
+        }
+        private int FindMovieMaxRating(Model.Film[] movies)
+        {
+            if (movies == null || movies.Length == 0)
+                return -1;
 
+            int maxIndex = 0;
+            double maxRating = movies[0].Rating;
 
+            for (int i = 1; i < movies.Length; i++)
+            {
+                if (movies[i].Rating > maxRating)
+                {
+                    maxRating = movies[i].Rating;
+                    maxIndex = i;
+                }
+            }
+            return maxIndex;
+        }
+        private void btnFindRating_click(object sender, EventArgs e)
+        {
+            int index = FindMovieMaxRating(_movies);
+
+            if (index != -1)
+            {
+                listBoxFilms.SelectedIndex = index;
+            }
+            else
+            {
+                MessageBox.Show("Массив фильмов пуст!");
+            }
+        }
     }
 }

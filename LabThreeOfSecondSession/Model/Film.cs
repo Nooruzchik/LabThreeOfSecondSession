@@ -44,7 +44,7 @@ namespace LabThreeOfSecondSession.Model
             get { return rating; }
             set
             {
-                if (value < 0 || value > 10)
+                if (value <= 0.0 || value > 10.0)
                     throw new ArgumentException("Рейтинг должен быть от 0 до 10");
                 rating = value;
             }
