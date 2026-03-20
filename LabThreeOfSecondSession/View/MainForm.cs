@@ -198,10 +198,10 @@ namespace LabThreeOfSecondSession
                 textBoxGenre.Text = _currentMovie.Genre;
                 textBoxDuration.Text = _currentMovie.Duration.ToString();
                 textBoxRating.Text = _currentMovie.Rating.ToString();
-            }
 
-            // сброс цвета фона 
-            textBoxRating.BackColor = Color.White; 
+                // сброс цвета фона 
+                textBoxRating.BackColor = Color.White;
+            }
         }
 
         private void textBoxRating_changed(object sender, EventArgs e)
@@ -212,15 +212,19 @@ namespace LabThreeOfSecondSession
             {
                 double newRating = Convert.ToDouble(textBoxRating.Text);
 
-                if (newRating > 0 & newRating <= 10)
+                //_currentMovie.Rating = newRating;
+                //textBoxRating.BackColor = Color.White;
+
+                if (newRating > 0 || newRating <= 10)
                 {
                     _currentMovie.Rating = newRating;
+                    textBoxRating.BackColor = Color.White;
                 }
 
-                if (newRating > 10)
-                {
-                    textBoxRating.BackColor = Color.LightPink;
-                }
+                //if (newRating > 10)
+                //{
+                //    textBoxRating.BackColor = Color.LightPink;
+                //}
             }
             catch (FormatException)
             {

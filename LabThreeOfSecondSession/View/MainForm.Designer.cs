@@ -308,7 +308,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(tabPageClasses);
+            MaximizeBox = false;
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             tabPageClasses.ResumeLayout(false);
             tabPage1.ResumeLayout(false);

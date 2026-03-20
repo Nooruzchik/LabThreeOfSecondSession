@@ -9,9 +9,9 @@ namespace LabThreeOfSecondSession.Model
 {
     internal class Film
     {
-        private int duration;
-        private int yearMade;
-        private double rating;
+        private int _duration;
+        private int _yearMade;
+        private double _rating;
 
         // Автосвойства для полей без ограничений
         public string Name { get; set; }
@@ -19,34 +19,34 @@ namespace LabThreeOfSecondSession.Model
 
         public int Duration
         {
-            get { return duration; }
+            get { return _duration; }
             set
             {
                 if (value <= 0)
                     throw new ArgumentException("Продолжительность должна быть положительной");
-                duration = value;
+                _duration = value;
             }
         }
 
         public int YearMade
         {
-            get { return yearMade; }
+            get { return _yearMade; }
             set
             {
                 if (value < 1900 || value > DateTime.Now.Year)
                     throw new ArgumentException("Год должен быть от 1900 до 2026");
-                yearMade = value;
+                _yearMade = value;
             }
         }
 
         public double Rating
         {
-            get { return rating; }
+            get { return _rating; }
             set
             {
                 if (value >= 0 && value <= 10)
                 {
-                    rating = value;
+                    _rating = value;
                 }
                 else
                 {
