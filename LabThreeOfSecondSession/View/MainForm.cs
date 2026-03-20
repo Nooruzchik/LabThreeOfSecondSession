@@ -14,36 +14,38 @@ namespace LabThreeOfSecondSession
         {
             InitializeComponent();
 
-            Random rand = new Random();
-            _rectangles = new Model.Rectangle[5];
+            Random rand = new Random(); // функция рандома
+            _rectangles = new Model.Rectangle[5]; // создание массива из 5 элементов 
+            string[] colors = { "Orange", "White", "Pink", "Black", "Red", "Blue", "Yellow" }; // массив цветов
 
-
-            for (int i = 0; i < _rectangles.Length; i++)
+            for (int i = 0; i < _rectangles.Length; i++) // цикл для генерации элементов прямоугольника
             {
-                double length = rand.Next(1, 101);
-                double width = rand.Next(1, 101);
-                string color = "color" + i;
+                double length = rand.Next(1, 101); // рандомная длину
+                double width = rand.Next(1, 101); // задает рандомную ширину
+                string color = colors[rand.Next(colors.Length)]; // берет рандомный цевт из массива
 
-                _rectangles[i] = new Model.Rectangle(length, width, color);
+                _rectangles[i] = new Model.Rectangle(length, width, color); // вызывает класс _rectangle
             }
 
 
-            for (int i = 0; i < _rectangles.Length; i++)
+            for (int i = 0; i < _rectangles.Length; i++) // цикл для нумерации прямоугольников
             {
-                listBoxRectangles.Items.Add($"Rectangle {i + 1}");
+                listBoxRectangles.Items.Add($"Rectangle {i + 1}"); // добавляет нумерованне прямоугольники в listbox
             }
 
 
             /*-------------------------------------------------*/
+             
+            _movies = new Model.Film[5]; // массив из 5 элементов для фильма
+            string[] genres = { "хоррор" , "боевик" , "фэнтези" , "научный"}; // массив цветов
 
-            _movies = new Model.Film[5];
 
-            for (int i = 0; i < _movies.Length; i++)
+            for (int i = 0; i < _movies.Length; i++)  // цикл для генерации элементов фильма
             {
                 int yearMade = rand.Next(1900, 2027);
                 int duration = rand.Next(60, 200);
-                double rating = rand.Next(0, 11);
-                string genre = "Genre" + i;
+                double rating = Math.Round(rand.NextDouble() * 10, 1);
+                string genre = genres[rand.Next(genres.Length)]; ;
                 string name = "Name" + i;
 
 
@@ -76,11 +78,15 @@ namespace LabThreeOfSecondSession
                 textBoxWidth.BackColor = Color.White;
             }
         }
-
+        
+        /// <summary>
+        /// изменение цвета текстбокса с длиной
+        /// </summary>
         private void textBoxLength_changed(object sender, EventArgs e)
         {
             if (_currentRectangle == null) { return; }
 
+            // обрабатыаем случаи и ловим ошибки
             try
             {
                 double newLength = Convert.ToDouble(textBoxLength.Text);
@@ -102,6 +108,9 @@ namespace LabThreeOfSecondSession
             }
         }
 
+        /// <summary>
+        /// изменение цвета текстбокса с шириной
+        /// </summary>
         private void textBoxWidth_changed(object sender, EventArgs e)
         {
             if (_currentRectangle == null) { return; }
@@ -127,6 +136,9 @@ namespace LabThreeOfSecondSession
             }
         }
 
+        /// <summary>
+        /// изменение цвета текстбокса с цветами
+        /// </summary>
         private void textBoxColor_TextChanged(object sender, EventArgs e)
         {
             if (_currentRectangle != null)
@@ -135,6 +147,10 @@ namespace LabThreeOfSecondSession
             }
         }
 
+        /// <summary>
+        /// ищет максимальный элемент с максимальной шириной
+        /// </summary>
+        /// <returns>возващает индекс максильной ширины элемента</returns>
         private int FindRectangleWithMaxWidth(Model.Rectangle[] rectangles)
         {
             if (rectangles == null || rectangles.Length == 0)
@@ -153,7 +169,9 @@ namespace LabThreeOfSecondSession
             }
             return maxIndex;
         }
-
+        /// <summary>
+        /// обработчик нажатия на кнопку find
+        /// </summary>
         private void btnFind_click(object sender, EventArgs e)
         {
             int index = FindRectangleWithMaxWidth(_rectangles);
@@ -171,10 +189,10 @@ namespace LabThreeOfSecondSession
         {
             if (listBoxFilms.SelectedIndex >= 0)
             {
-                // Получаем выбранный прямоугольник из массива
+                // получаем выбранный прямоугольник из массива
                 _currentMovie = _movies[listBoxFilms.SelectedIndex];
 
-                // Отображаем его значения в текстовых полях
+                // отображаем его значения в текстовых полях
                 textBoxName.Text = _currentMovie.Name;
                 textBoxYearMade.Text = _currentMovie.YearMade.ToString();
                 textBoxGenre.Text = _currentMovie.Genre;
@@ -182,12 +200,8 @@ namespace LabThreeOfSecondSession
                 textBoxRating.Text = _currentMovie.Rating.ToString();
             }
 
-            // Сброс цвета фона 
-            textBoxName.BackColor = Color.White;
-            textBoxGenre.BackColor = Color.White;
-            textBoxRating.BackColor = Color.White;
-            textBoxYearMade.BackColor = Color.White;
-            textBoxDuration.BackColor = Color.White;
+            // сброс цвета фона 
+            textBoxRating.BackColor = Color.White; 
         }
 
         private void textBoxRating_changed(object sender, EventArgs e)
@@ -201,6 +215,11 @@ namespace LabThreeOfSecondSession
                 if (newRating > 0 & newRating <= 10)
                 {
                     _currentMovie.Rating = newRating;
+                }
+
+                if (newRating > 10)
+                {
+                    textBoxRating.BackColor = Color.LightPink;
                 }
             }
             catch (FormatException)
@@ -218,18 +237,19 @@ namespace LabThreeOfSecondSession
         }
         private int FindMovieMaxRating(Model.Film[] movies)
         {
-            if (movies == null || movies.Length == 0)
+            // проверка на заполнение
+            if (movies == null || movies.Length == 0) 
                 return -1;
-
-            int maxIndex = 0;
-            double maxRating = movies[0].Rating;
+             
+            int maxIndex = 0; // индекс максимального рейтинга
+            double maxRating = movies[0].Rating; // отображаем максимальный рейтинг
 
             for (int i = 1; i < movies.Length; i++)
             {
                 if (movies[i].Rating > maxRating)
                 {
                     maxRating = movies[i].Rating;
-                    maxIndex = i;
+                    maxIndex = i; // перезаписываем индекс максивального элемента
                 }
             }
             return maxIndex;
