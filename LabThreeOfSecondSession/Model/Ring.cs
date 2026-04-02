@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabThreeOfSecondSession.Model
 {
-    internal class Ring
+    public class Ring
     {
         private Point2D _center;
         private double _outerRadius;
