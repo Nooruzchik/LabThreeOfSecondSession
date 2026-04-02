@@ -31,6 +31,8 @@
             tabPageClasses = new TabControl();
             tabPage1 = new TabPage();
             RectanglesGroupBox = new GroupBox();
+            labelId = new Label();
+            textBoxId = new TextBox();
             labelY = new Label();
             labelX = new Label();
             textBoxCenterY = new TextBox();
@@ -110,6 +112,8 @@
             // 
             // RectanglesGroupBox
             // 
+            RectanglesGroupBox.Controls.Add(labelId);
+            RectanglesGroupBox.Controls.Add(textBoxId);
             RectanglesGroupBox.Controls.Add(labelY);
             RectanglesGroupBox.Controls.Add(labelX);
             RectanglesGroupBox.Controls.Add(textBoxCenterY);
@@ -129,6 +133,23 @@
             RectanglesGroupBox.TabIndex = 0;
             RectanglesGroupBox.TabStop = false;
             RectanglesGroupBox.Text = "Rectangles";
+            // 
+            // labelId
+            // 
+            labelId.AutoSize = true;
+            labelId.Location = new Point(539, 191);
+            labelId.Name = "labelId";
+            labelId.Size = new Size(22, 20);
+            labelId.TabIndex = 13;
+            labelId.Text = "Id";
+            // 
+            // textBoxId
+            // 
+            textBoxId.Location = new Point(539, 227);
+            textBoxId.Name = "textBoxId";
+            textBoxId.ReadOnly = true;
+            textBoxId.Size = new Size(84, 27);
+            textBoxId.TabIndex = 12;
             // 
             // labelY
             // 
@@ -611,5 +632,7 @@
         private TextBox textBoxCenterY;
         private TextBox textBoxCenterX;
         private Label labelY;
+        private Label labelId;
+        private TextBox textBoxId;
     }
 }

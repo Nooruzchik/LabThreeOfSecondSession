@@ -93,6 +93,7 @@ namespace LabThreeOfSecondSession
                 textBoxColor.Text = _currentRectangle.Color;
                 textBoxCenterX.Text = _currentRectangle.Center.X.ToString();
                 textBoxCenterY.Text = _currentRectangle.Center.Y.ToString();
+                textBoxId.Text = _currentRectangle.Id.ToString();
 
                 // —брос цвета фона 
                 textBoxLength.BackColor = Color.White;
