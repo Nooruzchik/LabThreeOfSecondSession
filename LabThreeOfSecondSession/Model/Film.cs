@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,7 @@ namespace LabThreeOfSecondSession.Model
             get { return _duration; }
             set
             {
-                if (value <= 0)
-                    throw new ArgumentException("Продолжительность должна быть положительной");
+                Validator.AsserOnPositiveValue(value, nameof(Duration));
                 _duration = value;
             }
         }
@@ -33,8 +33,7 @@ namespace LabThreeOfSecondSession.Model
             get { return _yearMade; }
             set
             {
-                if (value < 1900 || value > DateTime.Now.Year)
-                    throw new ArgumentException("Год должен быть от 1900 до 2026");
+                Validator.AssertValueInRange(value, 1900, DateTime.Now.Year, nameof(YearMade));
                 _yearMade = value;
             }
         }
@@ -44,14 +43,17 @@ namespace LabThreeOfSecondSession.Model
             get { return _rating; }
             set
             {
-                if (value >= 0 && value <= 10)
-                {
-                    _rating = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(nameof(value), "Рейтинг должен быть от 0 до 10");
-                }
+                //if (value >= 0 && value <= 10)
+                //{
+                //    _rating = value;
+                //}
+                //else
+                //{
+                //    throw new ArgumentOutOfRangeException(nameof(value), "Рейтинг должен быть от 0 до 10");
+                //}
+
+                Validator.AssertValueInRange(value, 0, 10, nameof(Rating));
+                _rating = value;
             }
         }
 

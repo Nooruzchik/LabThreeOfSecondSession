@@ -16,8 +16,7 @@ namespace LabThreeOfSecondSession.Model
             get{return flightTime;}
             set 
             {
-                if (value <= 0)
-                    throw new Exception("Время полета должна быть положительной");
+                Validator.AsserOnPositiveValue(value, nameof(FlightTime));
                 flightTime = value;
             }
 

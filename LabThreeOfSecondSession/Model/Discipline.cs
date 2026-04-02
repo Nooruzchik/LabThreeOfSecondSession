@@ -10,29 +10,27 @@ namespace LabThreeOfSecondSession.Model
 {
     internal class Discipline
     {
-        private int hours;
-        private int grade;
+        private int _hours;
+        private int _grade;
         public string DisciplineName;
         public string TeachersName;
 
         public int Hours
         {
-            get { return hours; }
+            get { return _hours; }
             set
             {
-                if (value < 0)
-                    throw new ArgumentException("Количество часов не может быть отрицательным");
-                hours = value;
+                Validator.AsserOnPositiveValue(value, nameof(Hours));
+                _hours = value;
             }
         }
         public int Grade
         {
-            get { return grade; }
+            get { return _grade; }
             set
             {
-                if (value < 0 || value > 5)
-                    throw new ArgumentException("Оценка должна быть от 0 до 5");
-                grade = value;
+                Validator.AssertValueInRange(value, 0, 5, nameof(Grade));
+                _grade = value;
             }
         }
 

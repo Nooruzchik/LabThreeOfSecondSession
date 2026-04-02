@@ -18,8 +18,7 @@ namespace LabThreeOfSecondSession.Model
             get { return _length; }
             set
             {
-                if (value <= 0)
-                    throw new ArgumentException("Длина должна быть положительной");
+                Validator.AsserOnPositiveValue(value, nameof(Length));
                 _length = value;
             }
         }
@@ -29,8 +28,7 @@ namespace LabThreeOfSecondSession.Model
             get { return _width; }
             set
             {
-                if (value <= 0)
-                    throw new ArgumentException("Ширина должна быть положительной");
+                Validator.AsserOnPositiveValue(value, nameof(Width));
                 _width = value;
             }
         }

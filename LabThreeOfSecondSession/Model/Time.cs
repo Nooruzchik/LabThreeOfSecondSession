@@ -17,8 +17,7 @@ namespace LabThreeOfSecondSession.Model
             get { return hour; }
             set
             {
-                if (value < 0 || value > 23)
-                    throw new Exception("Укажите часы от 0 до 23");
+                Validator.AssertValueInRange(value, 0, 23, nameof(Hour));
                 hour = value;
             }
         }
@@ -28,8 +27,7 @@ namespace LabThreeOfSecondSession.Model
             get { return minute; }
             set
             {
-                if (value < 0 || value > 60)
-                    throw new Exception("Минут только 60");
+                Validator.AssertValueInRange(value, 0, 60, nameof(Minute));
                 minute = value;
             }
         }
@@ -39,8 +37,7 @@ namespace LabThreeOfSecondSession.Model
             get { return  second; }
             set
             {
-                if (value < 0 || value > 60)
-                    throw new Exception("Секунд только 60");
+                Validator.AssertValueInRange(value, 0, 60, nameof(Second));
                 second = value;
             }
         }
