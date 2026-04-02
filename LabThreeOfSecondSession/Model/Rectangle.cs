@@ -11,6 +11,7 @@ namespace LabThreeOfSecondSession.Model
         private double _length;
         private double _width;
 
+        public Point2D Center { get; set; }
         public string Color { get; set; }
 
         public double Length
@@ -34,11 +35,12 @@ namespace LabThreeOfSecondSession.Model
         }
 
         // Конструктор с параметрами (использует свойства)
-        public Rectangle(double length, double width, string color)
+        public Rectangle(double length, double width, string color, int centerX, int centerY)
         {
             Length = length;
             Width = width;
             Color = color;
+            Center = new Point2D(centerX, centerY);
         }
 
         // Конструктор без параметров

@@ -31,6 +31,10 @@
             tabPageClasses = new TabControl();
             tabPage1 = new TabPage();
             RectanglesGroupBox = new GroupBox();
+            labelY = new Label();
+            labelX = new Label();
+            textBoxCenterY = new TextBox();
+            textBoxCenterX = new TextBox();
             buttonFind = new Button();
             textBoxColor = new TextBox();
             textBoxWidth = new TextBox();
@@ -106,6 +110,10 @@
             // 
             // RectanglesGroupBox
             // 
+            RectanglesGroupBox.Controls.Add(labelY);
+            RectanglesGroupBox.Controls.Add(labelX);
+            RectanglesGroupBox.Controls.Add(textBoxCenterY);
+            RectanglesGroupBox.Controls.Add(textBoxCenterX);
             RectanglesGroupBox.Controls.Add(buttonFind);
             RectanglesGroupBox.Controls.Add(textBoxColor);
             RectanglesGroupBox.Controls.Add(textBoxWidth);
@@ -121,6 +129,40 @@
             RectanglesGroupBox.TabIndex = 0;
             RectanglesGroupBox.TabStop = false;
             RectanglesGroupBox.Text = "Rectangles";
+            // 
+            // labelY
+            // 
+            labelY.AutoSize = true;
+            labelY.Location = new Point(539, 106);
+            labelY.Name = "labelY";
+            labelY.Size = new Size(64, 20);
+            labelY.TabIndex = 11;
+            labelY.Text = "Center Y";
+            // 
+            // labelX
+            // 
+            labelX.AutoSize = true;
+            labelX.Location = new Point(539, 37);
+            labelX.Name = "labelX";
+            labelX.Size = new Size(65, 20);
+            labelX.TabIndex = 10;
+            labelX.Text = "Center X";
+            // 
+            // textBoxCenterY
+            // 
+            textBoxCenterY.Location = new Point(539, 143);
+            textBoxCenterY.Name = "textBoxCenterY";
+            textBoxCenterY.ReadOnly = true;
+            textBoxCenterY.Size = new Size(84, 27);
+            textBoxCenterY.TabIndex = 9;
+            // 
+            // textBoxCenterX
+            // 
+            textBoxCenterX.Location = new Point(539, 64);
+            textBoxCenterX.Name = "textBoxCenterX";
+            textBoxCenterX.ReadOnly = true;
+            textBoxCenterX.Size = new Size(84, 27);
+            textBoxCenterX.TabIndex = 8;
             // 
             // buttonFind
             // 
@@ -565,5 +607,9 @@
         private Label label2;
         private Label label1;
         private Label replaceToInt;
+        private Label labelX;
+        private TextBox textBoxCenterY;
+        private TextBox textBoxCenterX;
+        private Label labelY;
     }
 }

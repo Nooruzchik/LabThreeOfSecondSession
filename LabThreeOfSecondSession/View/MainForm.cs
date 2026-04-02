@@ -24,8 +24,10 @@ namespace LabThreeOfSecondSession
                 double length = rand.Next(1, 101); // рандомна€ длину
                 double width = rand.Next(1, 101); // задает рандомную ширину
                 string color = colors[rand.Next(colors.Length)]; // берет рандомный цевт из массива
+                int centerX = rand.Next(1, 101);
+                int centerY = rand.Next(1, 101);
 
-                _rectangles[i] = new Model.Rectangle(length, width, color); // вызывает класс _rectangle
+                _rectangles[i] = new Model.Rectangle(length, width, color, centerX, centerY); // вызывает класс _rectangle
             }
 
 
@@ -36,9 +38,9 @@ namespace LabThreeOfSecondSession
 
 
             /*-------------------------------------------------*/
-             
+
             _movies = new Model.Film[5]; // массив из 5 элементов дл€ фильма
-            string[] genres = { "хоррор" , "боевик" , "фэнтези" , "научный"}; // массив цветов
+            string[] genres = { "хоррор", "боевик", "фэнтези", "научный" }; // массив цветов
 
 
             for (int i = 0; i < _movies.Length; i++)  // цикл дл€ генерации элементов фильма
@@ -89,13 +91,15 @@ namespace LabThreeOfSecondSession
                 textBoxLength.Text = _currentRectangle.Length.ToString();
                 textBoxWidth.Text = _currentRectangle.Width.ToString();
                 textBoxColor.Text = _currentRectangle.Color;
+                textBoxCenterX.Text = _currentRectangle.Center.X.ToString();
+                textBoxCenterY.Text = _currentRectangle.Center.Y.ToString();
 
                 // —брос цвета фона 
                 textBoxLength.BackColor = Color.White;
                 textBoxWidth.BackColor = Color.White;
             }
         }
-        
+
         /// <summary>
         /// изменение цвета текстбокса с длиной
         /// </summary>
@@ -259,9 +263,9 @@ namespace LabThreeOfSecondSession
         private int FindMovieMaxRating(Model.Film[] movies)
         {
             // проверка на заполнение
-            if (movies == null || movies.Length == 0) 
+            if (movies == null || movies.Length == 0)
                 return -1;
-             
+
             int maxIndex = 0; // индекс максимального рейтинга
             double maxRating = movies[0].Rating; // отображаем максимальный рейтинг
 
