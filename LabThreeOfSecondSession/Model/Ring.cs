@@ -25,9 +25,9 @@ namespace LabThreeOfSecondSession.Model
             get => _outerRadius;
             set
             {
-                // Проверка на положительность (можно использовать Validator)
+                
                 Validator.AsserOnPositiveValue(value, nameof(OuterRadius));
-                // Если внутренний радиус уже задан, проверяем, что внешний >= внутреннего
+                
                 if (value < _innerRadius)
                     throw new ArgumentException("OuterRadius must be greater than or equal to InnerRadius.", nameof(OuterRadius));
                 _outerRadius = value;
@@ -47,7 +47,6 @@ namespace LabThreeOfSecondSession.Model
             }
         }
 
-        // Конструктор
         public Ring(Point2D center, double outerRadius, double innerRadius)
         {
             Center = center;
@@ -56,7 +55,6 @@ namespace LabThreeOfSecondSession.Model
             InnerRadius = innerRadius;
         }
 
-        // Свойство Area (только чтение, вычисляемое)
         public double Area
         {
             get
