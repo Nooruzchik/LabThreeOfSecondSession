@@ -33,7 +33,7 @@ namespace LabThreeOfSecondSession.Model
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException($"{propertyName} не может быть пустым", propertyName);
             if (!Regex.IsMatch(value, @"^[a-zA-Z]+$"))
-                throw new ArgumentException($"{propertyName} must contain only English letters.", propertyName);
+                throw new ArgumentException($"{propertyName} должен содержать только английские буквы!", propertyName);
         }
 
         public string Name
@@ -42,8 +42,6 @@ namespace LabThreeOfSecondSession.Model
             set
             {
                 AssertStringContainsOnlyLetters(value, nameof(Surname));
-                //if (string.IsNullOrWhiteSpace(value))
-                //    throw new Exception("Имя не может быть пустым");
                 _name = value;
             }
         }
@@ -54,8 +52,6 @@ namespace LabThreeOfSecondSession.Model
             set
             {
                 AssertStringContainsOnlyLetters(value, nameof(Surname));
-                //if (string.IsNullOrWhiteSpace(value))
-                //    throw new Exception("Имя не может быть пустым");
                 _surname = value;
             }
         }
