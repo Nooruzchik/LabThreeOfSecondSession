@@ -14,7 +14,7 @@ namespace LabThreeOfSecondSession.Model
         public int X
         {
             get { return _x; }
-            set
+            private set
             {
                 Validator.AsserOnPositiveValue(value, nameof(X));
                 _x = value;
@@ -24,7 +24,7 @@ namespace LabThreeOfSecondSession.Model
         public int Y
         {
             get { return _y; }
-            set
+            private set
             {
                 Validator.AsserOnPositiveValue(value, nameof(Y));
                 _y = value;
