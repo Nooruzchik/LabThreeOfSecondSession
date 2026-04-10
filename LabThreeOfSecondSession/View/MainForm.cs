@@ -1,5 +1,6 @@
 using LabThreeOfSecondSession.Model;
 using LabTwoOfSecondSession.Model.Enums;
+using Rectangle = LabThreeOfSecondSession.Model.Rectangle;  
 
 namespace LabThreeOfSecondSession
 {
@@ -10,6 +11,9 @@ namespace LabThreeOfSecondSession
 
         private Model.Film[] _movies;
         private Model.Film _currentMovie;
+
+        private List<Rectangle> _rectangleList;    
+        private Rectangle _selectedRectangle;       
 
         public MainForm()
         {
@@ -65,6 +69,13 @@ namespace LabThreeOfSecondSession
             // ============== lab2 =========// 
 
             seasonComboBox.DataSource = Enum.GetValues(typeof(Season)); // выводит значания Season в comboBox
+
+
+
+            /*=============== lab 4=========*/
+
+            _rectangleList = new List<Rectangle>();
+            _selectedRectangle = null;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -400,5 +411,75 @@ namespace LabThreeOfSecondSession
         {
             tabPage1.BackColor = Color.White;
         }
+
+        private void RectangleListBoxNew_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Проверяем, выбран ли элемент
+            if (listBoxRectanglesNew.SelectedIndex == -1)
+            {
+                _selectedRectangle = null;
+                return;
+            }
+
+            // Получаем выбранный прямоугольник из списка
+            int selectedIndex = listBoxRectanglesNew.SelectedIndex;
+            _selectedRectangle = _rectangleList[selectedIndex];
+
+            // Отображаем его данные в текстовых полях
+            textBoxHeight2.Text = _selectedRectangle.Length.ToString();
+            textBoxWidth2.Text = _selectedRectangle.Width.ToString();
+            textBoxPosX.Text = _selectedRectangle.Center.X.ToString();
+            textBoxPosY.Text = _selectedRectangle.Center.Y.ToString();
+            textBoxIdNew.Text = _selectedRectangle.Id.ToString();
+
+            // Сбрасываем цвет фона (на случай, если были ошибки)
+            textBoxLength.BackColor = Color.White;
+            textBoxWidth.BackColor = Color.White;
+        }
+
+        private void btnAdd_click(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+
+            double length = rand.Next(30, 101);   
+            double width = rand.Next(30, 101);   
+            string color = "Green";
+            int centerX = rand.Next(50, 500);     
+            int centerY = rand.Next(50, 500);
+
+
+            Rectangle newRect = new Rectangle(length, width, color, centerX, centerY);
+
+            // Добавляем в список
+            _rectangleList.Add(newRect);
+
+            // Добавляем в ListBox
+            string displayString = $"{newRect.Id}:(X= {centerX}; Y= {centerY}; W= {width}; H= {length})";
+            listBoxRectanglesNew.Items.Add(displayString);
+
+        }
+
+        private void btnDel_click(object sender, EventArgs e)
+        {
+            if (listBoxRectanglesNew.SelectedIndex == -1)
+                return;  // ничего не выбрано — выходим
+
+            if (_rectangleList.Count == 0)
+                return;  // список пуст — выходим
+
+            int selectedIndex = listBoxRectanglesNew.SelectedIndex;
+
+            // Удаляем из списка прямоугольников
+            _rectangleList.RemoveAt(selectedIndex);
+
+            // Удаляем из ListBox
+            listBoxRectanglesNew.Items.RemoveAt(selectedIndex);
+
+            // Очищаем текущий выбранный прямоугольник
+            _selectedRectangle = null;
+
+        }
+
+        
     }
 }

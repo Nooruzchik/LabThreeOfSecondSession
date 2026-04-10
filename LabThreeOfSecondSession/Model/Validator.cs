@@ -8,13 +8,13 @@ namespace LabThreeOfSecondSession.Model
 {
     public static class Validator
     {
-        public static void AsserOnPositiveValue(int value, string propertyName)
+        public static void AssertOnPositiveValue(int value, string propertyName)
         {
             if (value <= 0)
                 throw new ArgumentException($"{propertyName} must be positive.", propertyName);
         }
 
-        public static void AsserOnPositiveValue(double value, string propertyName)
+        public static void AssertOnPositiveValue(double value, string propertyName)
         {
             if (value <= 0)
                 throw new ArgumentException($"{propertyName} must be positive.", propertyName);

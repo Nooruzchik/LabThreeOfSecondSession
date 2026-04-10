@@ -13,6 +13,10 @@ namespace LabThreeOfSecondSession.Model
         private static int _allRectanglesCount;
         private readonly int _id;
 
+
+        //public int Left => Center.X - (int)(Width / 2);
+        //public int Top => Center.Y - (int)(Length / 2);
+
         public int Id
         {
             get { return _id; }
@@ -25,7 +29,7 @@ namespace LabThreeOfSecondSession.Model
             get { return _length; }
             set
             {
-                Validator.AsserOnPositiveValue(value, nameof(Length));
+                Validator.AssertOnPositiveValue(value, nameof(Length));
                 _length = value;
             }
         }
@@ -35,7 +39,7 @@ namespace LabThreeOfSecondSession.Model
             get { return _width; }
             set
             {
-                Validator.AsserOnPositiveValue(value, nameof(Width));
+                Validator.AssertOnPositiveValue(value, nameof(Width));
                 _width = value;
             }
         }

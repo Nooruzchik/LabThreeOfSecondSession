@@ -26,7 +26,7 @@ namespace LabThreeOfSecondSession.Model
             set
             {
                 
-                Validator.AsserOnPositiveValue(value, nameof(OuterRadius));
+                Validator.AssertOnPositiveValue(value, nameof(OuterRadius));
                 
                 if (value < _innerRadius)
                     throw new ArgumentException("OuterRadius must be greater than or equal to InnerRadius.", nameof(OuterRadius));
@@ -40,7 +40,7 @@ namespace LabThreeOfSecondSession.Model
             get => _innerRadius;
             set
             { 
-                Validator.AsserOnPositiveValue(value, nameof(InnerRadius));
+                Validator.AssertOnPositiveValue(value, nameof(InnerRadius));
                 if (value > _outerRadius)
                     throw new ArgumentException("InnerRadius cannot be greater than OuterRadius.", nameof(InnerRadius));
                 _innerRadius = value;

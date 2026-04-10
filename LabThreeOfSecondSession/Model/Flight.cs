@@ -16,7 +16,7 @@ namespace LabThreeOfSecondSession.Model
             get{return flightTime;}
             set 
             {
-                Validator.AsserOnPositiveValue(value, nameof(FlightTime));
+                Validator.AssertOnPositiveValue(value, nameof(FlightTime));
                 flightTime = value;
             }
 

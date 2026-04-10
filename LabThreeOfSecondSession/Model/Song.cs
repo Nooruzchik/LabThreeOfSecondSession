@@ -16,7 +16,7 @@ namespace LabThreeOfSecondSession.Model
             get {  return during; }
             set
             {
-                Validator.AsserOnPositiveValue(value, nameof(During));
+                Validator.AssertOnPositiveValue(value, nameof(During));
                 during = value;
             }
         }

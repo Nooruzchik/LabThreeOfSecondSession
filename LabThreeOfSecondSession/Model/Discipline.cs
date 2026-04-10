@@ -20,7 +20,7 @@ namespace LabThreeOfSecondSession.Model
             get { return _hours; }
             set
             {
-                Validator.AsserOnPositiveValue(value, nameof(Hours));
+                Validator.AssertOnPositiveValue(value, nameof(Hours));
                 _hours = value;
             }
         }
