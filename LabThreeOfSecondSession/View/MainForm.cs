@@ -414,13 +414,13 @@ namespace LabThreeOfSecondSession
 
         private void RectangleListBoxNew_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBoxRectanglesNew.SelectedIndex == -1)
+            if (listBoxRectanglesNew.SelectedIndex == -1 || _rectangleList.Count == 0)
             {
                 _selectedRectangle = null;
                 return;
             }
 
-         
+
             int selectedIndex = listBoxRectanglesNew.SelectedIndex;
             _selectedRectangle = _rectangleList[selectedIndex];
 
@@ -476,6 +476,15 @@ namespace LabThreeOfSecondSession
 
             _selectedRectangle = null;
 
+
+            if (_rectangleList.Count == 0)
+            {
+                ClearRectangleInfo();
+            }
+            else
+            {
+                listBoxRectanglesNew.SelectedIndex = 0;
+            }
         }
 
         private void UpdateListBoxItem()
@@ -558,6 +567,18 @@ namespace LabThreeOfSecondSession
             }
         }
 
+        private void ClearRectangleInfo()
+        {
+            textBoxHeight2.Text = "";
+            textBoxWidth2.Text = "";
+            textBoxPosX.Text = "";
+            textBoxPosY.Text = "";
+            textBoxIdNew.Text = "";
 
+            textBoxHeight2.BackColor = Color.White;
+            textBoxWidth2.BackColor = Color.White;
+            textBoxPosX.BackColor = Color.White;
+            textBoxPosY.BackColor = Color.White;
+        }
     }
 }
