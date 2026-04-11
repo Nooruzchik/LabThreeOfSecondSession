@@ -12,8 +12,8 @@ namespace LabThreeOfSecondSession
         private Model.Film[] _movies;
         private Model.Film _currentMovie;
 
-        private List<Rectangle> _rectangleList;    
-        private Rectangle _selectedRectangle;       
+        private List<Rectangle> _rectangleList;
+        private Rectangle _selectedRectangle;
 
         public MainForm()
         {
@@ -414,25 +414,24 @@ namespace LabThreeOfSecondSession
 
         private void RectangleListBoxNew_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Проверяем, выбран ли элемент
             if (listBoxRectanglesNew.SelectedIndex == -1)
             {
                 _selectedRectangle = null;
                 return;
             }
 
-            // Получаем выбранный прямоугольник из списка
+         
             int selectedIndex = listBoxRectanglesNew.SelectedIndex;
             _selectedRectangle = _rectangleList[selectedIndex];
 
-            // Отображаем его данные в текстовых полях
+
             textBoxHeight2.Text = _selectedRectangle.Length.ToString();
             textBoxWidth2.Text = _selectedRectangle.Width.ToString();
             textBoxPosX.Text = _selectedRectangle.Center.X.ToString();
             textBoxPosY.Text = _selectedRectangle.Center.Y.ToString();
             textBoxIdNew.Text = _selectedRectangle.Id.ToString();
 
-            // Сбрасываем цвет фона (на случай, если были ошибки)
+           
             textBoxLength.BackColor = Color.White;
             textBoxWidth.BackColor = Color.White;
         }
@@ -441,10 +440,10 @@ namespace LabThreeOfSecondSession
         {
             Random rand = new Random();
 
-            double length = rand.Next(30, 101);   
-            double width = rand.Next(30, 101);   
+            double length = rand.Next(30, 101);
+            double width = rand.Next(30, 101);
             string color = "Green";
-            int centerX = rand.Next(50, 500);     
+            int centerX = rand.Next(50, 500);
             int centerY = rand.Next(50, 500);
 
 
@@ -462,10 +461,10 @@ namespace LabThreeOfSecondSession
         private void btnDel_click(object sender, EventArgs e)
         {
             if (listBoxRectanglesNew.SelectedIndex == -1)
-                return;  // ничего не выбрано — выходим
+                return;  
 
             if (_rectangleList.Count == 0)
-                return;  // список пуст — выходим
+                return;  
 
             int selectedIndex = listBoxRectanglesNew.SelectedIndex;
 
@@ -475,11 +474,90 @@ namespace LabThreeOfSecondSession
             // Удаляем из ListBox
             listBoxRectanglesNew.Items.RemoveAt(selectedIndex);
 
-            // Очищаем текущий выбранный прямоугольник
             _selectedRectangle = null;
 
         }
 
-        
+        private void UpdateListBoxItem()
+        {
+            if (listBoxRectanglesNew.SelectedIndex == -1) return;
+            if (_selectedRectangle == null) return;
+
+            int index = listBoxRectanglesNew.SelectedIndex;
+
+            string newDisplayString = $"{_selectedRectangle.Id}:(X= {_selectedRectangle.Center.X}; Y= {_selectedRectangle.Center.Y}; W= {_selectedRectangle.Width}; H= {_selectedRectangle.Length})";
+
+            listBoxRectanglesNew.Items[index] = newDisplayString;
+        }
+
+        private void textBoxWidth2_TextChanged(object sender, EventArgs e)
+        {
+            if (_selectedRectangle == null) return;
+
+            try
+            {
+                double newWidth = Convert.ToDouble(textBoxWidth2.Text);
+                _selectedRectangle.Width = newWidth;
+                textBoxWidth2.BackColor = Color.White;
+                UpdateListBoxItem();  // обновляем список
+            }
+            catch
+            {
+                textBoxWidth2.BackColor = Color.LightPink;
+            }
+        }
+
+        private void textBoxHeight2_TextChanged(object sender, EventArgs e)
+        {
+            if (_selectedRectangle == null) return;
+
+            try
+            {
+                double newHeight = Convert.ToDouble(textBoxHeight2.Text);
+                _selectedRectangle.Length = newHeight;
+                textBoxHeight2.BackColor = Color.White;
+                UpdateListBoxItem();  // обновляем список
+            }
+            catch
+            {
+                textBoxHeight2.BackColor = Color.LightPink;
+            }
+        }
+
+        private void textBoxPosX_TextChanged(object sender, EventArgs e)
+        {
+            if (_selectedRectangle == null) return;
+
+            try
+            {
+                int newX = Convert.ToInt32(textBoxPosX.Text);
+                _selectedRectangle.Center = new Point2D(newX, _selectedRectangle.Center.Y);
+                textBoxPosX.BackColor = Color.White;
+                UpdateListBoxItem();
+            }
+            catch
+            {
+                textBoxPosX.BackColor = Color.LightPink;
+            }
+        }
+
+        private void textBoxPosY_TextChanged(object sender, EventArgs e)
+        {
+            if (_selectedRectangle == null) return;
+
+            try
+            {
+                int newY = Convert.ToInt32(textBoxPosY.Text);
+                _selectedRectangle.Center = new Point2D(_selectedRectangle.Center.X, newY);
+                textBoxPosY.BackColor = Color.White;
+                UpdateListBoxItem();
+            }
+            catch
+            {
+                textBoxPosY.BackColor = Color.LightPink;
+            }
+        }
+
+
     }
 }

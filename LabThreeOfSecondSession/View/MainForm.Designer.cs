@@ -697,6 +697,7 @@
             textBoxHeight2.Name = "textBoxHeight2";
             textBoxHeight2.Size = new Size(119, 27);
             textBoxHeight2.TabIndex = 5;
+            textBoxHeight2.TextChanged += textBoxHeight2_TextChanged;
             // 
             // textBoxWidth2
             // 
@@ -704,6 +705,7 @@
             textBoxWidth2.Name = "textBoxWidth2";
             textBoxWidth2.Size = new Size(119, 27);
             textBoxWidth2.TabIndex = 4;
+            textBoxWidth2.TextChanged += textBoxWidth2_TextChanged;
             // 
             // textBoxPosY
             // 
@@ -711,6 +713,7 @@
             textBoxPosY.Name = "textBoxPosY";
             textBoxPosY.Size = new Size(119, 27);
             textBoxPosY.TabIndex = 3;
+            textBoxPosY.TextChanged += textBoxPosY_TextChanged;
             // 
             // textBoxPosX
             // 
@@ -718,6 +721,7 @@
             textBoxPosX.Name = "textBoxPosX";
             textBoxPosX.Size = new Size(119, 27);
             textBoxPosX.TabIndex = 2;
+            textBoxPosX.TextChanged += textBoxPosX_TextChanged;
             // 
             // textBoxIdNew
             // 
