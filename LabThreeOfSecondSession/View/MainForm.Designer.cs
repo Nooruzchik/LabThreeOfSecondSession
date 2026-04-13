@@ -86,7 +86,7 @@
             btnDel = new Button();
             btnAdd = new Button();
             labelRectanges = new Label();
-            panelShowRectangle = new Panel();
+            CanvasPanel = new Panel();
             textBoxHeight2 = new TextBox();
             textBoxWidth2 = new TextBox();
             textBoxPosY = new TextBox();
@@ -586,7 +586,7 @@
             tabPage4.Controls.Add(btnDel);
             tabPage4.Controls.Add(btnAdd);
             tabPage4.Controls.Add(labelRectanges);
-            tabPage4.Controls.Add(panelShowRectangle);
+            tabPage4.Controls.Add(CanvasPanel);
             tabPage4.Controls.Add(textBoxHeight2);
             tabPage4.Controls.Add(textBoxWidth2);
             tabPage4.Controls.Add(textBoxPosY);
@@ -683,13 +683,13 @@
             labelRectanges.TabIndex = 7;
             labelRectanges.Text = "Rectangles";
             // 
-            // panelShowRectangle
+            // CanvasPanel
             // 
-            panelShowRectangle.BorderStyle = BorderStyle.FixedSingle;
-            panelShowRectangle.Location = new Point(355, 29);
-            panelShowRectangle.Name = "panelShowRectangle";
-            panelShowRectangle.Size = new Size(437, 513);
-            panelShowRectangle.TabIndex = 6;
+            CanvasPanel.BorderStyle = BorderStyle.FixedSingle;
+            CanvasPanel.Location = new Point(355, 29);
+            CanvasPanel.Name = "CanvasPanel";
+            CanvasPanel.Size = new Size(437, 513);
+            CanvasPanel.TabIndex = 6;
             // 
             // textBoxHeight2
             // 
@@ -822,7 +822,7 @@
         private TextBox textBoxId;
         private TabPage tabPage4;
         private Label labelRectanges;
-        private Panel panelShowRectangle;
+        private Panel CanvasPanel;
         private TextBox textBoxHeight2;
         private TextBox textBoxWidth2;
         private TextBox textBoxPosY;

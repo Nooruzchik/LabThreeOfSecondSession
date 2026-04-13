@@ -15,6 +15,8 @@ namespace LabThreeOfSecondSession
         private List<Rectangle> _rectangleList;
         private Rectangle _selectedRectangle;
 
+        private List<Panel> _rectanglePanels;
+
         public MainForm()
         {
             InitializeComponent();
@@ -76,6 +78,9 @@ namespace LabThreeOfSecondSession
 
             _rectangleList = new List<Rectangle>();
             _selectedRectangle = null;
+
+
+            _rectanglePanels = new List<Panel>();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -443,8 +448,8 @@ namespace LabThreeOfSecondSession
             double length = rand.Next(30, 101);
             double width = rand.Next(30, 101);
             string color = "Green";
-            int centerX = rand.Next(50, 500);
-            int centerY = rand.Next(50, 500);
+            int centerX = rand.Next(50, 400);
+            int centerY = rand.Next(50, 400);
 
 
             Rectangle newRect = new Rectangle(length, width, color, centerX, centerY);
@@ -456,6 +461,9 @@ namespace LabThreeOfSecondSession
             string displayString = $"{newRect.Id}:(X= {centerX}; Y= {centerY}; W= {width}; H= {length})";
             listBoxRectanglesNew.Items.Add(displayString);
 
+
+            DrawRectangles();    
+            FindCollisions();
         }
 
         private void btnDel_click(object sender, EventArgs e)
@@ -485,6 +493,9 @@ namespace LabThreeOfSecondSession
             {
                 listBoxRectanglesNew.SelectedIndex = 0;
             }
+
+            DrawRectangles();
+            FindCollisions();
         }
 
         private void UpdateListBoxItem()
@@ -508,7 +519,10 @@ namespace LabThreeOfSecondSession
                 double newWidth = Convert.ToDouble(textBoxWidth2.Text);
                 _selectedRectangle.Width = newWidth;
                 textBoxWidth2.BackColor = Color.White;
-                UpdateListBoxItem();  // обновляем список
+
+                UpdateListBoxItem();
+                DrawRectangles();
+                FindCollisions();
             }
             catch
             {
@@ -525,7 +539,10 @@ namespace LabThreeOfSecondSession
                 double newHeight = Convert.ToDouble(textBoxHeight2.Text);
                 _selectedRectangle.Length = newHeight;
                 textBoxHeight2.BackColor = Color.White;
-                UpdateListBoxItem();  // обновляем список
+
+                UpdateListBoxItem();
+                DrawRectangles();
+                FindCollisions();
             }
             catch
             {
@@ -542,7 +559,10 @@ namespace LabThreeOfSecondSession
                 int newX = Convert.ToInt32(textBoxPosX.Text);
                 _selectedRectangle.Center = new Point2D(newX, _selectedRectangle.Center.Y);
                 textBoxPosX.BackColor = Color.White;
+
                 UpdateListBoxItem();
+                DrawRectangles();
+                FindCollisions();
             }
             catch
             {
@@ -559,7 +579,10 @@ namespace LabThreeOfSecondSession
                 int newY = Convert.ToInt32(textBoxPosY.Text);
                 _selectedRectangle.Center = new Point2D(_selectedRectangle.Center.X, newY);
                 textBoxPosY.BackColor = Color.White;
+
                 UpdateListBoxItem();
+                DrawRectangles();
+                FindCollisions();
             }
             catch
             {
@@ -579,6 +602,62 @@ namespace LabThreeOfSecondSession
             textBoxWidth2.BackColor = Color.White;
             textBoxPosX.BackColor = Color.White;
             textBoxPosY.BackColor = Color.White;
+        }
+
+
+        private void DrawRectangles()
+        {
+            // Очищаем канву от старых панелей
+            CanvasPanel.Controls.Clear();
+            _rectanglePanels.Clear();
+
+            // Проходим по всем прямоугольникам в списке
+            foreach (var rect in _rectangleList)
+            {
+                // Вычисляем координаты верхнего левого угла
+                int left = rect.Center.X - (int)(rect.Width / 2);
+                int top = rect.Center.Y - (int)(rect.Length / 2);
+
+                // Создаём новую панель
+                Panel panel = new Panel
+                {
+                    Location = new Point(left, top),
+                    Width = (int)rect.Width,
+                    Height = (int)rect.Length,
+                    BackColor = Color.FromArgb(127, 127, 255, 127),  // зелёный полупрозрачный
+                    BorderStyle = BorderStyle.FixedSingle
+                };
+
+                // Добавляем панель на канву
+                CanvasPanel.Controls.Add(panel);
+
+                // Сохраняем в список для дальнейшего управления
+                _rectanglePanels.Add(panel);
+            }
+        }
+
+        private void FindCollisions()
+        {
+            // Сначала красим все панели в зелёный
+            foreach (var panel in _rectanglePanels)
+            {
+                panel.BackColor = Color.FromArgb(127, 127, 255, 127); // зелёный
+            }
+
+            // Двойной цикл для проверки всех пар прямоугольников
+            for (int i = 0; i < _rectangleList.Count; i++)
+            {
+                for (int j = i + 1; j < _rectangleList.Count; j++)  // j = i+1, чтобы не сравнивать с самим собой
+                {
+                    // Используем CollisionManager для проверки пересечения
+                    if (CollisionManager.IsCollision(_rectangleList[i], _rectangleList[j]))
+                    {
+                        // Если пересекаются - красим оба в красный
+                        _rectanglePanels[i].BackColor = Color.FromArgb(127, 255, 127, 127); // красный
+                        _rectanglePanels[j].BackColor = Color.FromArgb(127, 255, 127, 127);
+                    }
+                }
+            }
         }
     }
 }
