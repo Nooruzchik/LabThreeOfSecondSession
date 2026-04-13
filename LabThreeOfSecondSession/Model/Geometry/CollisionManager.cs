@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LabThreeOfSecondSession.Model
+namespace LabThreeOfSecondSession.Model.Geometry
 {
     public static class CollisionManager
     {
@@ -34,7 +34,7 @@ namespace LabThreeOfSecondSession.Model
 
             double radius = ring1.OuterRadius + ring2.OuterRadius;
             // Кольца пересекаются, если расстояние меньше суммы внешних радиусов
-            return (distance < radius);
+            return distance < radius;
         }
     }
 }

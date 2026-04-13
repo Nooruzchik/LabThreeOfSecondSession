@@ -1,13 +1,13 @@
-using LabThreeOfSecondSession.Model;
+using LabThreeOfSecondSession.Model.Geometry;
 using LabTwoOfSecondSession.Model.Enums;
-using Rectangle = LabThreeOfSecondSession.Model.Rectangle;  
+using Rectangle = LabThreeOfSecondSession.Model.Geometry.Rectangle;
 
 namespace LabThreeOfSecondSession
 {
     public partial class MainForm : Form
     {
-        private Model.Rectangle[] _rectangles;
-        private Model.Rectangle _currentRectangle;
+        private Rectangle[] _rectangles;
+        private Rectangle _currentRectangle;
 
         private Model.Film[] _movies;
         private Model.Film _currentMovie;
@@ -22,7 +22,7 @@ namespace LabThreeOfSecondSession
             InitializeComponent();
 
             Random rand = new Random(); // функция рандома
-            _rectangles = new Model.Rectangle[5]; // создание массива из 5 элементов 
+            _rectangles = new Rectangle[5]; // создание массива из 5 элементов 
             string[] colors = { "Orange", "White", "Pink", "Black", "Red", "Blue", "Yellow" }; // массив цветов
 
             for (int i = 0; i < _rectangles.Length; i++) // цикл для генерации элементов прямоугольника
@@ -33,7 +33,7 @@ namespace LabThreeOfSecondSession
                 int centerX = rand.Next(1, 101);
                 int centerY = rand.Next(1, 101);
 
-                _rectangles[i] = new Model.Rectangle(length, width, color, centerX, centerY); // вызывает класс _rectangle
+                _rectangles[i] = new Model.Geometry.Rectangle(length, width, color, centerX, centerY); // вызывает класс _rectangle
             }
 
 
@@ -189,7 +189,7 @@ namespace LabThreeOfSecondSession
         /// ищет максимальный элемент с максимальной шириной
         /// </summary>
         /// <returns>возващает индекс максильной ширины элемента</returns>
-        private int FindRectangleWithMaxWidth(Model.Rectangle[] rectangles)
+        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
         {
             if (rectangles == null || rectangles.Length == 0)
                 return -1;
@@ -429,36 +429,17 @@ namespace LabThreeOfSecondSession
             int selectedIndex = listBoxRectanglesNew.SelectedIndex;
             _selectedRectangle = _rectangleList[selectedIndex];
 
-
-            textBoxHeight2.Text = _selectedRectangle.Length.ToString();
-            textBoxWidth2.Text = _selectedRectangle.Width.ToString();
-            textBoxPosX.Text = _selectedRectangle.Center.X.ToString();
-            textBoxPosY.Text = _selectedRectangle.Center.Y.ToString();
-            textBoxIdNew.Text = _selectedRectangle.Id.ToString();
-
-           
-            textBoxLength.BackColor = Color.White;
-            textBoxWidth.BackColor = Color.White;
+            UpdateRectangleInfo(_selectedRectangle);
         }
 
         private void btnAdd_click(object sender, EventArgs e)
         {
-            Random rand = new Random();
-
-            double length = rand.Next(30, 101);
-            double width = rand.Next(30, 101);
-            string color = "Green";
-            int centerX = rand.Next(50, 400);
-            int centerY = rand.Next(50, 400);
-
-
-            Rectangle newRect = new Rectangle(length, width, color, centerX, centerY);
+            Rectangle newRect = RectangleFactory.Randomize(CanvasPanel.Width, CanvasPanel.Height);
 
             // Добавляем в список
             _rectangleList.Add(newRect);
 
-            // Добавляем в ListBox
-            string displayString = $"{newRect.Id}:(X= {centerX}; Y= {centerY}; W= {width}; H= {length})";
+            string displayString = $"{newRect.Id}:(X= {newRect.Center.X}; Y= {newRect.Center.Y}; W= {newRect.Width}; H= {newRect.Length})";
             listBoxRectanglesNew.Items.Add(displayString);
 
 
@@ -604,6 +585,26 @@ namespace LabThreeOfSecondSession
             textBoxPosY.BackColor = Color.White;
         }
 
+        private void UpdateRectangleInfo(Rectangle rectangle)
+        {
+            if (rectangle == null)
+            {
+                ClearRectangleInfo();
+                return;
+            }
+
+            textBoxHeight2.Text = rectangle.Length.ToString();
+            textBoxWidth2.Text = rectangle.Width.ToString();
+            textBoxPosX.Text = rectangle.Center.X.ToString();
+            textBoxPosY.Text = rectangle.Center.Y.ToString();
+            textBoxIdNew.Text = rectangle.Id.ToString();
+
+            textBoxHeight2.BackColor = Color.White;
+            textBoxWidth2.BackColor = Color.White;
+            textBoxPosX.BackColor = Color.White;
+            textBoxPosY.BackColor = Color.White;
+        }
+
 
         private void DrawRectangles()
         {
@@ -638,26 +639,24 @@ namespace LabThreeOfSecondSession
 
         private void FindCollisions()
         {
-            // Сначала красим все панели в зелёный
             foreach (var panel in _rectanglePanels)
             {
-                panel.BackColor = Color.FromArgb(127, 127, 255, 127); // зелёный
+                panel.BackColor = Color.FromArgb(127, 127, 255, 127);
             }
 
-            // Двойной цикл для проверки всех пар прямоугольников
             for (int i = 0; i < _rectangleList.Count; i++)
             {
-                for (int j = i + 1; j < _rectangleList.Count; j++)  // j = i+1, чтобы не сравнивать с самим собой
+                for (int j = i + 1; j < _rectangleList.Count; j++)
                 {
-                    // Используем CollisionManager для проверки пересечения
                     if (CollisionManager.IsCollision(_rectangleList[i], _rectangleList[j]))
                     {
-                        // Если пересекаются - красим оба в красный
-                        _rectanglePanels[i].BackColor = Color.FromArgb(127, 255, 127, 127); // красный
+                        _rectanglePanels[i].BackColor = Color.FromArgb(127, 255, 127, 127);
                         _rectanglePanels[j].BackColor = Color.FromArgb(127, 255, 127, 127);
                     }
                 }
             }
         }
+
+        
     }
 }
