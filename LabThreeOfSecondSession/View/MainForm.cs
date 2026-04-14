@@ -432,6 +432,8 @@ namespace LabThreeOfSecondSession
             UpdateRectangleInfo(_selectedRectangle);
         }
 
+        // ===================  lab 5 ==============//
+
         private void btnAdd_click(object sender, EventArgs e)
         {
             Rectangle newRect = RectangleFactory.Randomize(CanvasPanel.Width, CanvasPanel.Height);
@@ -478,7 +480,9 @@ namespace LabThreeOfSecondSession
             DrawRectangles();
             FindCollisions();
         }
-
+        /// <summary>
+        ///  метод обновления listBox
+        /// </summary>
         private void UpdateListBoxItem()
         {
             if (listBoxRectanglesNew.SelectedIndex == -1) return;
@@ -605,10 +609,11 @@ namespace LabThreeOfSecondSession
             textBoxPosY.BackColor = Color.White;
         }
 
-
+        /// <summary>
+        /// метод отрисовки прямоугольников
+        /// </summary>
         private void DrawRectangles()
         {
-            // Очищаем канву от старых панелей
             CanvasPanel.Controls.Clear();
             _rectanglePanels.Clear();
 
@@ -619,24 +624,25 @@ namespace LabThreeOfSecondSession
                 int left = rect.Center.X - (int)(rect.Width / 2);
                 int top = rect.Center.Y - (int)(rect.Length / 2);
 
-                // Создаём новую панель
+                
                 Panel panel = new Panel
                 {
                     Location = new Point(left, top),
                     Width = (int)rect.Width,
                     Height = (int)rect.Length,
-                    BackColor = Color.FromArgb(127, 127, 255, 127),  // зелёный полупрозрачный
+                    BackColor = Color.FromArgb(127, 127, 255, 127),  
                     BorderStyle = BorderStyle.FixedSingle
                 };
-
-                // Добавляем панель на канву
+                
                 CanvasPanel.Controls.Add(panel);
 
-                // Сохраняем в список для дальнейшего управления
+                
                 _rectanglePanels.Add(panel);
             }
         }
-
+        /// <summary>
+        /// метод поиска пересечений прямоугольников
+        /// </summary>
         private void FindCollisions()
         {
             foreach (var panel in _rectanglePanels)
