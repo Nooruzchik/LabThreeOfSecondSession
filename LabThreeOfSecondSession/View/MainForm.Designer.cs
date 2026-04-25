@@ -77,22 +77,7 @@
             intValueReturn = new TextBox();
             EnumsListBox = new ListBox();
             tabPage4 = new TabPage();
-            label12 = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            labelIdNew = new Label();
-            labelSelect = new Label();
-            btnDel = new Button();
-            btnAdd = new Button();
-            labelRectanges = new Label();
-            CanvasPanel = new Panel();
-            textBoxHeight2 = new TextBox();
-            textBoxWidth2 = new TextBox();
-            textBoxPosY = new TextBox();
-            textBoxPosX = new TextBox();
-            textBoxIdNew = new TextBox();
-            listBoxRectanglesNew = new ListBox();
+            rectanglesCollisionControl1 = new LabThreeOfSecondSession.View.RectanglesCollisionControl();
             tabPageClasses.SuspendLayout();
             tabPage1.SuspendLayout();
             RectanglesGroupBox.SuspendLayout();
@@ -115,7 +100,7 @@
             tabPageClasses.Location = new Point(0, 0);
             tabPageClasses.Name = "tabPageClasses";
             tabPageClasses.SelectedIndex = 0;
-            tabPageClasses.Size = new Size(808, 583);
+            tabPageClasses.Size = new Size(857, 649);
             tabPageClasses.TabIndex = 0;
             // 
             // tabPage1
@@ -124,7 +109,7 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(800, 550);
+            tabPage1.Size = new Size(802, 577);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Classes";
             tabPage1.UseVisualStyleBackColor = true;
@@ -148,7 +133,7 @@
             RectanglesGroupBox.Dock = DockStyle.Fill;
             RectanglesGroupBox.Location = new Point(3, 3);
             RectanglesGroupBox.Name = "RectanglesGroupBox";
-            RectanglesGroupBox.Size = new Size(794, 544);
+            RectanglesGroupBox.Size = new Size(796, 571);
             RectanglesGroupBox.TabIndex = 0;
             RectanglesGroupBox.TabStop = false;
             RectanglesGroupBox.Text = "Rectangles";
@@ -279,7 +264,7 @@
             tabPage2.Controls.Add(groupBoxMovie);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(800, 550);
+            tabPage2.Size = new Size(802, 577);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Movies";
             tabPage2.UseVisualStyleBackColor = true;
@@ -301,7 +286,7 @@
             groupBoxMovie.Dock = DockStyle.Fill;
             groupBoxMovie.Location = new Point(0, 0);
             groupBoxMovie.Name = "groupBoxMovie";
-            groupBoxMovie.Size = new Size(800, 550);
+            groupBoxMovie.Size = new Size(802, 577);
             groupBoxMovie.TabIndex = 0;
             groupBoxMovie.TabStop = false;
             groupBoxMovie.Text = "Films";
@@ -413,7 +398,7 @@
             tabPage3.Controls.Add(groupBox1);
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(800, 550);
+            tabPage3.Size = new Size(802, 577);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Enums";
             tabPage3.UseVisualStyleBackColor = true;
@@ -424,9 +409,9 @@
             groupBox3.Controls.Add(button2);
             groupBox3.Controls.Add(label5);
             groupBox3.Dock = DockStyle.Right;
-            groupBox3.Location = new Point(412, 365);
+            groupBox3.Location = new Point(414, 365);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(388, 185);
+            groupBox3.Size = new Size(388, 212);
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "Season Handle";
@@ -467,7 +452,7 @@
             groupBox2.Dock = DockStyle.Left;
             groupBox2.Location = new Point(0, 365);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(406, 185);
+            groupBox2.Size = new Size(406, 212);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Weekday Parsing";
@@ -518,7 +503,7 @@
             groupBox1.Dock = DockStyle.Top;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(800, 365);
+            groupBox1.Size = new Size(802, 365);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Enumeration";
@@ -577,174 +562,27 @@
             // 
             // tabPage4
             // 
-            tabPage4.Controls.Add(label12);
-            tabPage4.Controls.Add(label11);
-            tabPage4.Controls.Add(label10);
-            tabPage4.Controls.Add(label9);
-            tabPage4.Controls.Add(labelIdNew);
-            tabPage4.Controls.Add(labelSelect);
-            tabPage4.Controls.Add(btnDel);
-            tabPage4.Controls.Add(btnAdd);
-            tabPage4.Controls.Add(labelRectanges);
-            tabPage4.Controls.Add(CanvasPanel);
-            tabPage4.Controls.Add(textBoxHeight2);
-            tabPage4.Controls.Add(textBoxWidth2);
-            tabPage4.Controls.Add(textBoxPosY);
-            tabPage4.Controls.Add(textBoxPosX);
-            tabPage4.Controls.Add(textBoxIdNew);
-            tabPage4.Controls.Add(listBoxRectanglesNew);
+            tabPage4.Controls.Add(rectanglesCollisionControl1);
             tabPage4.Location = new Point(4, 29);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(800, 550);
+            tabPage4.Size = new Size(849, 616);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Rectangles";
             tabPage4.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // rectanglesCollisionControl1
             // 
-            label12.AutoSize = true;
-            label12.Location = new Point(24, 487);
-            label12.Name = "label12";
-            label12.Size = new Size(54, 20);
-            label12.TabIndex = 15;
-            label12.Text = "Height";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(24, 454);
-            label11.Name = "label11";
-            label11.Size = new Size(49, 20);
-            label11.TabIndex = 14;
-            label11.Text = "Width";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(24, 421);
-            label10.Name = "label10";
-            label10.Size = new Size(17, 20);
-            label10.TabIndex = 13;
-            label10.Text = "Y";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(24, 385);
-            label9.Name = "label9";
-            label9.Size = new Size(18, 20);
-            label9.TabIndex = 12;
-            label9.Text = "X";
-            // 
-            // labelIdNew
-            // 
-            labelIdNew.AutoSize = true;
-            labelIdNew.Location = new Point(24, 355);
-            labelIdNew.Name = "labelIdNew";
-            labelIdNew.Size = new Size(22, 20);
-            labelIdNew.TabIndex = 11;
-            labelIdNew.Text = "Id";
-            // 
-            // labelSelect
-            // 
-            labelSelect.AutoSize = true;
-            labelSelect.Location = new Point(24, 322);
-            labelSelect.Name = "labelSelect";
-            labelSelect.Size = new Size(136, 20);
-            labelSelect.TabIndex = 10;
-            labelSelect.Text = "Selected Rectangle";
-            // 
-            // btnDel
-            // 
-            btnDel.Location = new Point(176, 259);
-            btnDel.Name = "btnDel";
-            btnDel.Size = new Size(65, 41);
-            btnDel.TabIndex = 9;
-            btnDel.Text = "Del";
-            btnDel.UseVisualStyleBackColor = true;
-            btnDel.Click += btnDel_click;
-            // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(69, 259);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(55, 41);
-            btnAdd.TabIndex = 8;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_click;
-            // 
-            // labelRectanges
-            // 
-            labelRectanges.AutoSize = true;
-            labelRectanges.Location = new Point(24, 29);
-            labelRectanges.Name = "labelRectanges";
-            labelRectanges.Size = new Size(81, 20);
-            labelRectanges.TabIndex = 7;
-            labelRectanges.Text = "Rectangles";
-            // 
-            // CanvasPanel
-            // 
-            CanvasPanel.BorderStyle = BorderStyle.FixedSingle;
-            CanvasPanel.Location = new Point(355, 29);
-            CanvasPanel.Name = "CanvasPanel";
-            CanvasPanel.Size = new Size(437, 513);
-            CanvasPanel.TabIndex = 6;
-            // 
-            // textBoxHeight2
-            // 
-            textBoxHeight2.Location = new Point(93, 484);
-            textBoxHeight2.Name = "textBoxHeight2";
-            textBoxHeight2.Size = new Size(119, 27);
-            textBoxHeight2.TabIndex = 5;
-            textBoxHeight2.TextChanged += textBoxHeight2_TextChanged;
-            // 
-            // textBoxWidth2
-            // 
-            textBoxWidth2.Location = new Point(93, 451);
-            textBoxWidth2.Name = "textBoxWidth2";
-            textBoxWidth2.Size = new Size(119, 27);
-            textBoxWidth2.TabIndex = 4;
-            textBoxWidth2.TextChanged += textBoxWidth2_TextChanged;
-            // 
-            // textBoxPosY
-            // 
-            textBoxPosY.Location = new Point(93, 418);
-            textBoxPosY.Name = "textBoxPosY";
-            textBoxPosY.Size = new Size(119, 27);
-            textBoxPosY.TabIndex = 3;
-            textBoxPosY.TextChanged += textBoxPosY_TextChanged;
-            // 
-            // textBoxPosX
-            // 
-            textBoxPosX.Location = new Point(93, 385);
-            textBoxPosX.Name = "textBoxPosX";
-            textBoxPosX.Size = new Size(119, 27);
-            textBoxPosX.TabIndex = 2;
-            textBoxPosX.TextChanged += textBoxPosX_TextChanged;
-            // 
-            // textBoxIdNew
-            // 
-            textBoxIdNew.Location = new Point(93, 352);
-            textBoxIdNew.Name = "textBoxIdNew";
-            textBoxIdNew.ReadOnly = true;
-            textBoxIdNew.Size = new Size(119, 27);
-            textBoxIdNew.TabIndex = 1;
-            // 
-            // listBoxRectanglesNew
-            // 
-            listBoxRectanglesNew.FormattingEnabled = true;
-            listBoxRectanglesNew.Location = new Point(24, 52);
-            listBoxRectanglesNew.Name = "listBoxRectanglesNew";
-            listBoxRectanglesNew.Size = new Size(325, 184);
-            listBoxRectanglesNew.TabIndex = 0;
-            listBoxRectanglesNew.SelectedIndexChanged += RectangleListBoxNew_SelectedIndexChanged;
+            rectanglesCollisionControl1.Dock = DockStyle.Fill;
+            rectanglesCollisionControl1.Location = new Point(0, 0);
+            rectanglesCollisionControl1.Name = "rectanglesCollisionControl1";
+            rectanglesCollisionControl1.Size = new Size(849, 616);
+            rectanglesCollisionControl1.TabIndex = 0;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(808, 583);
+            ClientSize = new Size(857, 649);
             Controls.Add(tabPageClasses);
             MaximizeBox = false;
             Name = "MainForm";
@@ -766,7 +604,6 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tabPage4.ResumeLayout(false);
-            tabPage4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -821,21 +658,6 @@
         private Label labelId;
         private TextBox textBoxId;
         private TabPage tabPage4;
-        private Label labelRectanges;
-        private Panel CanvasPanel;
-        private TextBox textBoxHeight2;
-        private TextBox textBoxWidth2;
-        private TextBox textBoxPosY;
-        private TextBox textBoxPosX;
-        private TextBox textBoxIdNew;
-        private ListBox listBoxRectanglesNew;
-        private Button btnDel;
-        private Button btnAdd;
-        private Label labelSelect;
-        private Label label12;
-        private Label label11;
-        private Label label10;
-        private Label label9;
-        private Label labelIdNew;
+        private View.RectanglesCollisionControl rectanglesCollisionControl1;
     }
 }
