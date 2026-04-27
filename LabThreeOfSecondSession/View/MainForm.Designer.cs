@@ -60,6 +60,7 @@
             buttonFindTwo = new Button();
             listBoxFilms = new ListBox();
             tabPage3 = new TabPage();
+            enumsListControl1 = new LabThreeOfSecondSession.View.Pannels.EnumsListControl();
             groupBox3 = new GroupBox();
             seasonComboBox = new ComboBox();
             button2 = new Button();
@@ -69,13 +70,6 @@
             textBoxForWeek = new TextBox();
             btnParse = new Button();
             label4 = new Label();
-            groupBox1 = new GroupBox();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            ValuesListBox = new ListBox();
-            intValueReturn = new TextBox();
-            EnumsListBox = new ListBox();
             tabPage4 = new TabPage();
             rectanglesCollisionControl1 = new LabThreeOfSecondSession.View.RectanglesCollisionControl();
             tabPageClasses.SuspendLayout();
@@ -86,7 +80,6 @@
             tabPage3.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
             tabPage4.SuspendLayout();
             SuspendLayout();
             // 
@@ -109,7 +102,7 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(802, 577);
+            tabPage1.Size = new Size(849, 616);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Classes";
             tabPage1.UseVisualStyleBackColor = true;
@@ -133,7 +126,7 @@
             RectanglesGroupBox.Dock = DockStyle.Fill;
             RectanglesGroupBox.Location = new Point(3, 3);
             RectanglesGroupBox.Name = "RectanglesGroupBox";
-            RectanglesGroupBox.Size = new Size(796, 571);
+            RectanglesGroupBox.Size = new Size(843, 610);
             RectanglesGroupBox.TabIndex = 0;
             RectanglesGroupBox.TabStop = false;
             RectanglesGroupBox.Text = "Rectangles";
@@ -264,7 +257,7 @@
             tabPage2.Controls.Add(groupBoxMovie);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(802, 577);
+            tabPage2.Size = new Size(849, 616);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Movies";
             tabPage2.UseVisualStyleBackColor = true;
@@ -286,7 +279,7 @@
             groupBoxMovie.Dock = DockStyle.Fill;
             groupBoxMovie.Location = new Point(0, 0);
             groupBoxMovie.Name = "groupBoxMovie";
-            groupBoxMovie.Size = new Size(802, 577);
+            groupBoxMovie.Size = new Size(849, 616);
             groupBoxMovie.TabIndex = 0;
             groupBoxMovie.TabStop = false;
             groupBoxMovie.Text = "Films";
@@ -393,25 +386,31 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(enumsListControl1);
             tabPage3.Controls.Add(groupBox3);
             tabPage3.Controls.Add(groupBox2);
-            tabPage3.Controls.Add(groupBox1);
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(802, 577);
+            tabPage3.Size = new Size(849, 616);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Enums";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // enumsListControl1
+            // 
+            enumsListControl1.Location = new Point(0, 0);
+            enumsListControl1.Name = "enumsListControl1";
+            enumsListControl1.Size = new Size(853, 368);
+            enumsListControl1.TabIndex = 2;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(seasonComboBox);
             groupBox3.Controls.Add(button2);
             groupBox3.Controls.Add(label5);
-            groupBox3.Dock = DockStyle.Right;
-            groupBox3.Location = new Point(414, 365);
+            groupBox3.Location = new Point(461, 365);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(388, 212);
+            groupBox3.Size = new Size(388, 251);
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "Season Handle";
@@ -449,10 +448,9 @@
             groupBox2.Controls.Add(textBoxForWeek);
             groupBox2.Controls.Add(btnParse);
             groupBox2.Controls.Add(label4);
-            groupBox2.Dock = DockStyle.Left;
             groupBox2.Location = new Point(0, 365);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(406, 212);
+            groupBox2.Size = new Size(455, 251);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Weekday Parsing";
@@ -492,74 +490,6 @@
             label4.TabIndex = 0;
             label4.Text = "Type value for parsing";
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(ValuesListBox);
-            groupBox1.Controls.Add(intValueReturn);
-            groupBox1.Controls.Add(EnumsListBox);
-            groupBox1.Dock = DockStyle.Top;
-            groupBox1.Location = new Point(0, 0);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(802, 365);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Enumeration";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(512, 25);
-            label3.Name = "label3";
-            label3.Size = new Size(66, 20);
-            label3.TabIndex = 6;
-            label3.Text = "Int Value";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(261, 32);
-            label2.Name = "label2";
-            label2.Size = new Size(98, 20);
-            label2.TabIndex = 5;
-            label2.Text = "Choose Value";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(20, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(146, 20);
-            label1.TabIndex = 4;
-            label1.Text = "Choose Enumeration";
-            // 
-            // ValuesListBox
-            // 
-            ValuesListBox.FormattingEnabled = true;
-            ValuesListBox.Location = new Point(261, 55);
-            ValuesListBox.Name = "ValuesListBox";
-            ValuesListBox.Size = new Size(203, 304);
-            ValuesListBox.TabIndex = 3;
-            ValuesListBox.SelectedIndexChanged += ValueListBox_Changed;
-            // 
-            // intValueReturn
-            // 
-            intValueReturn.Location = new Point(512, 55);
-            intValueReturn.Name = "intValueReturn";
-            intValueReturn.Size = new Size(158, 27);
-            intValueReturn.TabIndex = 2;
-            // 
-            // EnumsListBox
-            // 
-            EnumsListBox.FormattingEnabled = true;
-            EnumsListBox.Location = new Point(20, 55);
-            EnumsListBox.Name = "EnumsListBox";
-            EnumsListBox.Size = new Size(204, 304);
-            EnumsListBox.TabIndex = 0;
-            EnumsListBox.SelectedIndexChanged += EnumsListBox_Changed;
-            // 
             // tabPage4
             // 
             tabPage4.Controls.Add(rectanglesCollisionControl1);
@@ -588,7 +518,6 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
-            Load += MainForm_Load;
             tabPageClasses.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             RectanglesGroupBox.ResumeLayout(false);
@@ -601,8 +530,6 @@
             groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             tabPage4.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -637,19 +564,12 @@
         private TabPage tabPage3;
         private GroupBox groupBox3;
         private GroupBox groupBox2;
-        private GroupBox groupBox1;
-        private ListBox ValuesListBox;
-        private TextBox intValueReturn;
-        private ListBox EnumsListBox;
         private ComboBox seasonComboBox;
         private Button button2;
         private Label label5;
         private TextBox textBoxForWeek;
         private Button btnParse;
         private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
         private Label replaceToInt;
         private Label labelX;
         private TextBox textBoxCenterY;
@@ -659,5 +579,6 @@
         private TextBox textBoxId;
         private TabPage tabPage4;
         private View.RectanglesCollisionControl rectanglesCollisionControl1;
+        private View.Pannels.EnumsListControl enumsListControl1;
     }
 }
