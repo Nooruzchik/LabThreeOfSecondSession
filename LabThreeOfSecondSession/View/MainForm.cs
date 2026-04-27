@@ -64,15 +64,11 @@ namespace LabThreeOfSecondSession
             }
 
 
-            // ============== lab2 =========// 
-
-            seasonComboBox.DataSource = Enum.GetValues(typeof(Season)); // выводит значания Season в comboBox
-
-
+            
 
         }
 
-
+        //--------------Rectangle-------------//
 
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -200,7 +196,7 @@ namespace LabThreeOfSecondSession
                 MessageBox.Show("Массив прямоугольников пуст!");
             }
         }
-        /*----------------------------------------------------------------------- */
+        /*------------------------------Movie----------------------------------------- */
         private void FilmsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxFilms.SelectedIndex >= 0)
@@ -289,44 +285,7 @@ namespace LabThreeOfSecondSession
         }
 
 
-        // ===================  lab 2 ==============//
-
-
-
-        /// <summary>
-        ///  функция для покраски формы
-        /// </summary>
-        private void goButton_click(object sender, EventArgs e)
-        {
-            Season selectedSeason = (Season)seasonComboBox.SelectedItem;
-
-            switch (selectedSeason)
-            {
-                case Season.winter:
-                    tabPage3.BackColor = Color.FromArgb(80, 152, 215);
-                    MessageBox.Show("Бррр! Холодно!", "Время года", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    break;
-                case Season.spring:
-                    tabPage3.BackColor = Color.FromArgb(85, 156, 69);
-                    break;
-                case Season.summer:
-                    tabPage3.BackColor = Color.FromArgb(236, 228, 61);
-                    MessageBox.Show("Ура! Каникулы!", "Время года", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    break;
-
-                case Season.autumn:
-                    tabPage3.BackColor = Color.FromArgb(226, 156, 59);
-                    MessageBox.Show("Пора батрачить в универе", "Время года", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    break;
-                default:
-                    MessageBox.Show("Что-то пошло не так");
-                    break;
-            }
-        }
-
-        private void ComboBox_change(object sender, EventArgs e)
-        {
-            tabPage1.BackColor = Color.White;
-        }
+       
+        
     }
 }

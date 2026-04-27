@@ -42,6 +42,7 @@
             groupBox2.Controls.Add(textBoxForWeek);
             groupBox2.Controls.Add(btnParse);
             groupBox2.Controls.Add(label4);
+            groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new Point(0, 0);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(455, 226);

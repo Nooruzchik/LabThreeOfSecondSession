@@ -60,21 +60,17 @@
             buttonFindTwo = new Button();
             listBoxFilms = new ListBox();
             tabPage3 = new TabPage();
+            seasonsControl1 = new LabThreeOfSecondSession.View.Pannels.SeasonsControl();
+            weekdayParseControl1 = new LabThreeOfSecondSession.View.Pannels.WeekdayParseControl();
             enumsListControl1 = new LabThreeOfSecondSession.View.Pannels.EnumsListControl();
-            groupBox3 = new GroupBox();
-            seasonComboBox = new ComboBox();
-            button2 = new Button();
-            label5 = new Label();
             tabPage4 = new TabPage();
             rectanglesCollisionControl1 = new LabThreeOfSecondSession.View.RectanglesCollisionControl();
-            weekdayParseControl1 = new LabThreeOfSecondSession.View.Pannels.WeekdayParseControl();
             tabPageClasses.SuspendLayout();
             tabPage1.SuspendLayout();
             RectanglesGroupBox.SuspendLayout();
             tabPage2.SuspendLayout();
             groupBoxMovie.SuspendLayout();
             tabPage3.SuspendLayout();
-            groupBox3.SuspendLayout();
             tabPage4.SuspendLayout();
             SuspendLayout();
             // 
@@ -381,9 +377,9 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(seasonsControl1);
             tabPage3.Controls.Add(weekdayParseControl1);
             tabPage3.Controls.Add(enumsListControl1);
-            tabPage3.Controls.Add(groupBox3);
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(849, 616);
@@ -391,51 +387,26 @@
             tabPage3.Text = "Enums";
             tabPage3.UseVisualStyleBackColor = true;
             // 
+            // seasonsControl1
+            // 
+            seasonsControl1.Location = new Point(461, 365);
+            seasonsControl1.Name = "seasonsControl1";
+            seasonsControl1.Size = new Size(392, 344);
+            seasonsControl1.TabIndex = 4;
+            // 
+            // weekdayParseControl1
+            // 
+            weekdayParseControl1.Location = new Point(0, 365);
+            weekdayParseControl1.Name = "weekdayParseControl1";
+            weekdayParseControl1.Size = new Size(455, 248);
+            weekdayParseControl1.TabIndex = 3;
+            // 
             // enumsListControl1
             // 
             enumsListControl1.Location = new Point(0, 0);
             enumsListControl1.Name = "enumsListControl1";
             enumsListControl1.Size = new Size(853, 368);
             enumsListControl1.TabIndex = 2;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(seasonComboBox);
-            groupBox3.Controls.Add(button2);
-            groupBox3.Controls.Add(label5);
-            groupBox3.Location = new Point(461, 365);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(388, 251);
-            groupBox3.TabIndex = 1;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Season Handle";
-            // 
-            // seasonComboBox
-            // 
-            seasonComboBox.FormattingEnabled = true;
-            seasonComboBox.Location = new Point(31, 62);
-            seasonComboBox.Name = "seasonComboBox";
-            seasonComboBox.Size = new Size(189, 28);
-            seasonComboBox.TabIndex = 3;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(251, 61);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 2;
-            button2.Text = "Go!";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += goButton_click;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(31, 39);
-            label5.Name = "label5";
-            label5.Size = new Size(107, 20);
-            label5.TabIndex = 1;
-            label5.Text = "Choose season";
             // 
             // tabPage4
             // 
@@ -455,13 +426,6 @@
             rectanglesCollisionControl1.Size = new Size(849, 616);
             rectanglesCollisionControl1.TabIndex = 0;
             // 
-            // weekdayParseControl1
-            // 
-            weekdayParseControl1.Location = new Point(0, 365);
-            weekdayParseControl1.Name = "weekdayParseControl1";
-            weekdayParseControl1.Size = new Size(455, 248);
-            weekdayParseControl1.TabIndex = 3;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -480,8 +444,6 @@
             groupBoxMovie.ResumeLayout(false);
             groupBoxMovie.PerformLayout();
             tabPage3.ResumeLayout(false);
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
             tabPage4.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -514,10 +476,6 @@
         private Label lableGenre;
         private TextBox textBoxGenre;
         private TabPage tabPage3;
-        private GroupBox groupBox3;
-        private ComboBox seasonComboBox;
-        private Button button2;
-        private Label label5;
         private Label labelX;
         private TextBox textBoxCenterY;
         private TextBox textBoxCenterX;
@@ -528,5 +486,6 @@
         private View.RectanglesCollisionControl rectanglesCollisionControl1;
         private View.Pannels.EnumsListControl enumsListControl1;
         private View.Pannels.WeekdayParseControl weekdayParseControl1;
+        private View.Pannels.SeasonsControl seasonsControl1;
     }
 }
