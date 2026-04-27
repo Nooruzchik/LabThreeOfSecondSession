@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LabThreeOfSecondSession.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,10 +19,7 @@ namespace LabThreeOfSecondSession.View.Pannels
         {
             InitializeComponent();
 
-            Random rand = new Random(); // функция рандома
-
-
-            /*---------------------- Movies ---------------------------*/
+            Random rand = new Random();
 
             _movies = new Model.Film[5]; // массив из 5 элементов для фильма
             string[] genres = { "хоррор", "боевик", "фэнтези", "научный" }; // массив цветов
@@ -62,7 +60,7 @@ namespace LabThreeOfSecondSession.View.Pannels
                 textBoxRating.Text = _currentMovie.Rating.ToString();
 
                 // сброс цвета фона 
-                textBoxRating.BackColor = Color.White;
+                textBoxRating.BackColor = AppColors.ValidInputBackColor;
             }
         }
 
@@ -74,31 +72,24 @@ namespace LabThreeOfSecondSession.View.Pannels
             {
                 double newRating = Convert.ToDouble(textBoxRating.Text);
 
-                //_currentMovie.Rating = newRating;
-                //textBoxRating.BackColor = Color.White;
-
                 if (newRating > 0 || newRating <= 10)
                 {
                     _currentMovie.Rating = newRating;
-                    textBoxRating.BackColor = Color.White;
+                    textBoxRating.BackColor = AppColors.ValidInputBackColor;
                 }
 
-                //if (newRating > 10)
-                //{
-                //    textBoxRating.BackColor = Color.LightPink;
-                //}
             }
             catch (FormatException)
             {
-                textBoxRating.BackColor = Color.LightPink;
+                textBoxRating.BackColor = AppColors.InvalidInputBackColor;
             }
             catch (ArgumentException)
             {
-                textBoxRating.BackColor = Color.LightPink;
+                textBoxRating.BackColor = AppColors.InvalidInputBackColor;
             }
             catch (Exception)
             {
-                textBoxRating.BackColor = Color.LightPink;
+                textBoxRating.BackColor = AppColors.InvalidInputBackColor;
             }
         }
         private int FindMovieMaxRating(Model.Film[] movies)

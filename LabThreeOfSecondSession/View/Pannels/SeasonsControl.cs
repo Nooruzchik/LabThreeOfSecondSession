@@ -1,4 +1,5 @@
-﻿using LabTwoOfSecondSession.Model.Enums;
+﻿using LabThreeOfSecondSession.Model;
+using LabTwoOfSecondSession.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,20 +31,20 @@ namespace LabThreeOfSecondSession.View.Pannels
             switch (selectedSeason)
             {
                 case Season.winter:
-                    //tabPage3.BackColor = Color.FromArgb(80, 152, 215);
+                    this.BackColor = AppColors.WinterColor;
                     MessageBox.Show("Бррр! Холодно!", "Время года", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     break;
                 case Season.spring:
-                    //tabPage3.BackColor = Color.FromArgb(85, 156, 69);
+                    this.BackColor = AppColors.SpringColor;
                     MessageBox.Show("День рождение", "Время года", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     break;
                 case Season.summer:
-                    //tabPage3.BackColor = Color.FromArgb(236, 228, 61);
+                    this.BackColor = AppColors.SummerColor;
                     MessageBox.Show("Ура! Каникулы!", "Время года", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
 
                 case Season.autumn:
-                    //tabPage3.BackColor = Color.FromArgb(226, 156, 59);
+                    this.BackColor = AppColors.AutumnColor;
                     MessageBox.Show("Пора батрачить в универе", "Время года", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 default:
@@ -54,7 +55,7 @@ namespace LabThreeOfSecondSession.View.Pannels
 
         private void ComboBox_change(object sender, EventArgs e)
         {
-            //tabPage3.BackColor = Color.White;
+            this.BackColor = AppColors.ValidInputBackColor;
         }
     }
 }

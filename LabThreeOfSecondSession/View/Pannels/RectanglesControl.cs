@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LabThreeOfSecondSession.Model;
+using LabThreeOfSecondSession.Model.Geometry;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LabThreeOfSecondSession.Model.Geometry;
 using Rectangle = LabThreeOfSecondSession.Model.Geometry.Rectangle;
 
 namespace LabThreeOfSecondSession.View.Pannels
@@ -58,8 +59,8 @@ namespace LabThreeOfSecondSession.View.Pannels
                 textBoxId.Text = _currentRectangle.Id.ToString();
 
                 // Сброс цвета фона 
-                textBoxLength.BackColor = Color.White;
-                textBoxWidth.BackColor = Color.White;
+                textBoxLength.BackColor = AppColors.ValidInputBackColor;
+                textBoxWidth.BackColor = AppColors.ValidInputBackColor;
             }
         }
 
@@ -76,19 +77,19 @@ namespace LabThreeOfSecondSession.View.Pannels
                 double newLength = Convert.ToDouble(textBoxLength.Text);
 
                 _currentRectangle.Length = newLength;
-                textBoxLength.BackColor = Color.White;
+                textBoxLength.BackColor = AppColors.ValidInputBackColor;
             }
             catch (FormatException)
             {
-                textBoxLength.BackColor = Color.LightPink;
+                textBoxLength.BackColor = AppColors.InvalidInputBackColor;
             }
             catch (ArgumentException)
             {
-                textBoxLength.BackColor = Color.LightPink;
+                textBoxLength.BackColor = AppColors.InvalidInputBackColor;
             }
             catch (Exception)
             {
-                textBoxLength.BackColor = Color.LightPink;
+                textBoxLength.BackColor = AppColors.InvalidInputBackColor;
             }
         }
 
@@ -104,19 +105,19 @@ namespace LabThreeOfSecondSession.View.Pannels
                 double newWidth = Convert.ToDouble(textBoxWidth.Text);
 
                 _currentRectangle.Width = newWidth;
-                textBoxWidth.BackColor = Color.White;
+                textBoxWidth.BackColor = AppColors.ValidInputBackColor;
             }
             catch (FormatException)
             {
-                textBoxWidth.BackColor = Color.LightPink;
+                textBoxWidth.BackColor = AppColors.InvalidInputBackColor;
             }
             catch (ArgumentException)
             {
-                textBoxWidth.BackColor = Color.LightPink;
+                textBoxWidth.BackColor = AppColors.InvalidInputBackColor;
             }
             catch (Exception)
             {
-                textBoxWidth.BackColor = Color.LightPink;
+                textBoxWidth.BackColor = AppColors.InvalidInputBackColor;
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using LabThreeOfSecondSession.Model.Geometry;
+﻿using LabThreeOfSecondSession.Model;
+using LabThreeOfSecondSession.Model.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -116,7 +117,7 @@ namespace LabThreeOfSecondSession.View
             {
                 double newWidth = Convert.ToDouble(textBoxWidth2.Text);
                 _selectedRectangle.Width = newWidth;
-                textBoxWidth2.BackColor = Color.White;
+                textBoxWidth2.BackColor = AppColors.ValidInputBackColor;
 
                 UpdateListBoxItem();
                 DrawRectangles();
@@ -124,7 +125,7 @@ namespace LabThreeOfSecondSession.View
             }
             catch
             {
-                textBoxWidth2.BackColor = Color.LightPink;
+                textBoxWidth2.BackColor = AppColors.InvalidInputBackColor;
             }
         }
 
@@ -136,7 +137,7 @@ namespace LabThreeOfSecondSession.View
             {
                 double newHeight = Convert.ToDouble(textBoxHeight2.Text);
                 _selectedRectangle.Length = newHeight;
-                textBoxHeight2.BackColor = Color.White;
+                textBoxHeight2.BackColor = AppColors.ValidInputBackColor;
 
                 UpdateListBoxItem();
                 DrawRectangles();
@@ -144,7 +145,7 @@ namespace LabThreeOfSecondSession.View
             }
             catch
             {
-                textBoxHeight2.BackColor = Color.LightPink;
+                textBoxHeight2.BackColor = AppColors.InvalidInputBackColor;
             }
         }
 
@@ -156,7 +157,7 @@ namespace LabThreeOfSecondSession.View
             {
                 int newX = Convert.ToInt32(textBoxPosX.Text);
                 _selectedRectangle.Center = new Point2D(newX, _selectedRectangle.Center.Y);
-                textBoxPosX.BackColor = Color.White;
+                textBoxPosX.BackColor = AppColors.ValidInputBackColor;
 
                 UpdateListBoxItem();
                 DrawRectangles();
@@ -164,7 +165,7 @@ namespace LabThreeOfSecondSession.View
             }
             catch
             {
-                textBoxPosX.BackColor = Color.LightPink;
+                textBoxPosX.BackColor = AppColors.InvalidInputBackColor;
             }
         }
 
@@ -176,7 +177,7 @@ namespace LabThreeOfSecondSession.View
             {
                 int newY = Convert.ToInt32(textBoxPosY.Text);
                 _selectedRectangle.Center = new Point2D(_selectedRectangle.Center.X, newY);
-                textBoxPosY.BackColor = Color.White;
+                textBoxPosY.BackColor = AppColors.ValidInputBackColor;
 
                 UpdateListBoxItem();
                 DrawRectangles();
@@ -184,7 +185,7 @@ namespace LabThreeOfSecondSession.View
             }
             catch
             {
-                textBoxPosY.BackColor = Color.LightPink;
+                textBoxPosY.BackColor = AppColors.InvalidInputBackColor;
             }
         }
 
@@ -196,10 +197,10 @@ namespace LabThreeOfSecondSession.View
             textBoxPosY.Text = "";
             textBoxIdNew.Text = "";
 
-            textBoxHeight2.BackColor = Color.White;
-            textBoxWidth2.BackColor = Color.White;
-            textBoxPosX.BackColor = Color.White;
-            textBoxPosY.BackColor = Color.White;
+            textBoxHeight2.BackColor = AppColors.ValidInputBackColor;
+            textBoxWidth2.BackColor = AppColors.ValidInputBackColor;
+            textBoxPosX.BackColor = AppColors.ValidInputBackColor;
+            textBoxPosY.BackColor = AppColors.ValidInputBackColor;
         }
 
         private void UpdateRectangleInfo(Rectangle rectangle)
@@ -216,10 +217,10 @@ namespace LabThreeOfSecondSession.View
             textBoxPosY.Text = rectangle.Center.Y.ToString();
             textBoxIdNew.Text = rectangle.Id.ToString();
 
-            textBoxHeight2.BackColor = Color.White;
-            textBoxWidth2.BackColor = Color.White;
-            textBoxPosX.BackColor = Color.White;
-            textBoxPosY.BackColor = Color.White;
+            textBoxHeight2.BackColor = AppColors.ValidInputBackColor;
+            textBoxWidth2.BackColor = AppColors.ValidInputBackColor; ;
+            textBoxPosX.BackColor = AppColors.ValidInputBackColor;
+            textBoxPosY.BackColor = AppColors.ValidInputBackColor;
         }
 
         /// <summary>
@@ -260,7 +261,7 @@ namespace LabThreeOfSecondSession.View
         {
             foreach (var panel in _rectanglePanels)
             {
-                panel.BackColor = Color.FromArgb(127, 127, 255, 127);
+                panel.BackColor = AppColors.NonCollisionRectangleColor;
             }
 
             for (int i = 0; i < _rectangleList.Count; i++)
@@ -269,8 +270,8 @@ namespace LabThreeOfSecondSession.View
                 {
                     if (CollisionManager.IsCollision(_rectangleList[i], _rectangleList[j]))
                     {
-                        _rectanglePanels[i].BackColor = Color.FromArgb(127, 255, 127, 127);
-                        _rectanglePanels[j].BackColor = Color.FromArgb(127, 255, 127, 127);
+                        _rectanglePanels[i].BackColor = AppColors.CollisionRectangleColor;
+                        _rectanglePanels[j].BackColor = AppColors.CollisionRectangleColor;
                     }
                 }
             }
