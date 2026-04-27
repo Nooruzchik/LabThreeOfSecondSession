@@ -65,13 +65,9 @@
             seasonComboBox = new ComboBox();
             button2 = new Button();
             label5 = new Label();
-            groupBox2 = new GroupBox();
-            replaceToInt = new Label();
-            textBoxForWeek = new TextBox();
-            btnParse = new Button();
-            label4 = new Label();
             tabPage4 = new TabPage();
             rectanglesCollisionControl1 = new LabThreeOfSecondSession.View.RectanglesCollisionControl();
+            weekdayParseControl1 = new LabThreeOfSecondSession.View.Pannels.WeekdayParseControl();
             tabPageClasses.SuspendLayout();
             tabPage1.SuspendLayout();
             RectanglesGroupBox.SuspendLayout();
@@ -79,7 +75,6 @@
             groupBoxMovie.SuspendLayout();
             tabPage3.SuspendLayout();
             groupBox3.SuspendLayout();
-            groupBox2.SuspendLayout();
             tabPage4.SuspendLayout();
             SuspendLayout();
             // 
@@ -386,9 +381,9 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(weekdayParseControl1);
             tabPage3.Controls.Add(enumsListControl1);
             tabPage3.Controls.Add(groupBox3);
-            tabPage3.Controls.Add(groupBox2);
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(849, 616);
@@ -442,54 +437,6 @@
             label5.TabIndex = 1;
             label5.Text = "Choose season";
             // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(replaceToInt);
-            groupBox2.Controls.Add(textBoxForWeek);
-            groupBox2.Controls.Add(btnParse);
-            groupBox2.Controls.Add(label4);
-            groupBox2.Location = new Point(0, 365);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(455, 251);
-            groupBox2.TabIndex = 1;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Weekday Parsing";
-            // 
-            // replaceToInt
-            // 
-            replaceToInt.AutoSize = true;
-            replaceToInt.Location = new Point(20, 111);
-            replaceToInt.Name = "replaceToInt";
-            replaceToInt.Size = new Size(172, 20);
-            replaceToInt.TabIndex = 3;
-            replaceToInt.Text = "Напишите день недели";
-            // 
-            // textBoxForWeek
-            // 
-            textBoxForWeek.Location = new Point(20, 62);
-            textBoxForWeek.Name = "textBoxForWeek";
-            textBoxForWeek.Size = new Size(246, 27);
-            textBoxForWeek.TabIndex = 2;
-            // 
-            // btnParse
-            // 
-            btnParse.Location = new Point(287, 61);
-            btnParse.Name = "btnParse";
-            btnParse.Size = new Size(94, 29);
-            btnParse.TabIndex = 1;
-            btnParse.Text = "Parse";
-            btnParse.UseVisualStyleBackColor = true;
-            btnParse.MouseClick += buttonParse_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(20, 39);
-            label4.Name = "label4";
-            label4.Size = new Size(155, 20);
-            label4.TabIndex = 0;
-            label4.Text = "Type value for parsing";
-            // 
             // tabPage4
             // 
             tabPage4.Controls.Add(rectanglesCollisionControl1);
@@ -507,6 +454,13 @@
             rectanglesCollisionControl1.Name = "rectanglesCollisionControl1";
             rectanglesCollisionControl1.Size = new Size(849, 616);
             rectanglesCollisionControl1.TabIndex = 0;
+            // 
+            // weekdayParseControl1
+            // 
+            weekdayParseControl1.Location = new Point(0, 365);
+            weekdayParseControl1.Name = "weekdayParseControl1";
+            weekdayParseControl1.Size = new Size(455, 248);
+            weekdayParseControl1.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -528,8 +482,6 @@
             tabPage3.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             tabPage4.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -563,14 +515,9 @@
         private TextBox textBoxGenre;
         private TabPage tabPage3;
         private GroupBox groupBox3;
-        private GroupBox groupBox2;
         private ComboBox seasonComboBox;
         private Button button2;
         private Label label5;
-        private TextBox textBoxForWeek;
-        private Button btnParse;
-        private Label label4;
-        private Label replaceToInt;
         private Label labelX;
         private TextBox textBoxCenterY;
         private TextBox textBoxCenterX;
@@ -580,5 +527,6 @@
         private TabPage tabPage4;
         private View.RectanglesCollisionControl rectanglesCollisionControl1;
         private View.Pannels.EnumsListControl enumsListControl1;
+        private View.Pannels.WeekdayParseControl weekdayParseControl1;
     }
 }

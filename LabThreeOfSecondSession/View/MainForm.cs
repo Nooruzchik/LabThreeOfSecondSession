@@ -292,43 +292,7 @@ namespace LabThreeOfSecondSession
         // ===================  lab 2 ==============//
 
 
-        private void buttonParse_Click(object sender, MouseEventArgs e)
-        {
-            string userText = textBoxForWeek.Text;
 
-            Weekday parseDay;
-
-
-            bool parseSuccsesful = Enum.TryParse<Weekday>(userText, ignoreCase: true, out parseDay);
-
-            if (parseSuccsesful)
-            {
-
-                bool isNumber = true;
-                foreach (char c in userText)
-                {
-                    if (!char.IsDigit(c))
-                    {
-                        isNumber = false;
-                        break;
-                    }
-                }
-
-                if (isNumber)
-                {
-                    replaceToInt.Text = "Нет такого дня недели";
-                }
-                else
-                {
-                    int numberOfDay = (int)parseDay;
-                    replaceToInt.Text = $"Это день недели ({parseDay} = {numberOfDay})";
-                }
-            }
-            else
-            {
-                replaceToInt.Text = "Нет такого дня недели";
-            }
-        }
         /// <summary>
         ///  функция для покраски формы
         /// </summary>
