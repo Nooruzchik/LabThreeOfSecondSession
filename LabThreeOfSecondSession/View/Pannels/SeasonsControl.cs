@@ -18,7 +18,8 @@ namespace LabThreeOfSecondSession.View.Pannels
         {
             InitializeComponent();
 
-            seasonComboBox.DataSource = Enum.GetValues(typeof(Season)); // выводит значания Season в comboBox
+            // выводит значания Season в comboBox
+            seasonComboBox.DataSource = Enum.GetValues(typeof(Season));
         }
 
         /// <summary>
@@ -55,6 +56,7 @@ namespace LabThreeOfSecondSession.View.Pannels
 
         private void ComboBox_change(object sender, EventArgs e)
         {
+            // Возвращает исходный цвет фона
             this.BackColor = AppColors.ValidInputBackColor;
         }
     }

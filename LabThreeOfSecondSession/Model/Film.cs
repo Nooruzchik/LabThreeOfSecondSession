@@ -43,14 +43,7 @@ namespace LabThreeOfSecondSession.Model
             get { return _rating; }
             set
             {
-                //if (value >= 0 && value <= 10)
-                //{
-                //    _rating = value;
-                //}
-                //else
-                //{
-                //    throw new ArgumentOutOfRangeException(nameof(value), "Рейтинг должен быть от 0 до 10");
-                //}
+                
 
                 Validator.AssertValueInRange(value, 0, 10, nameof(Rating));
                 _rating = value;

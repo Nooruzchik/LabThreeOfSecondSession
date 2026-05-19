@@ -24,8 +24,8 @@ namespace LabThreeOfSecondSession.View.Pannels
             _movies = new Model.Film[5]; // массив из 5 элементов для фильма
             string[] genres = { "хоррор", "боевик", "фэнтези", "научный" }; // массив цветов
 
-
-            for (int i = 0; i < _movies.Length; i++)  // цикл для генерации элементов фильма
+            // цикл для генерации элементов фильма
+            for (int i = 0; i < _movies.Length; i++)
             {
                 int yearMade = rand.Next(1900, 2027);
                 int duration = rand.Next(60, 200);
@@ -34,17 +34,22 @@ namespace LabThreeOfSecondSession.View.Pannels
                 string name = "Name" + i;
 
 
-
                 _movies[i] = new Model.Film(name, duration, yearMade, genre, rating);
             }
 
+            // цикл нумерации фильмов
             for (int i = 0; i < _movies.Length; i++)
             {
                 listBoxFilms.Items.Add($"Movie {i + 1}");
             }
         }
 
-        /*------------------------------Movie----------------------------------------- */
+        /// <summary>
+        /// обрабатывает изменение выбранного элемента в списке фильмов.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void FilmsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxFilms.SelectedIndex >= 0)
@@ -64,6 +69,10 @@ namespace LabThreeOfSecondSession.View.Pannels
             }
         }
 
+        /// <summary>
+        /// обрабатывает изменение текста в поле ввода рейтинга фильма.
+        /// </summary>
+        
         private void textBoxRating_changed(object sender, EventArgs e)
         {
             if (_currentMovie == null) { return; }
@@ -92,6 +101,13 @@ namespace LabThreeOfSecondSession.View.Pannels
                 textBoxRating.BackColor = AppColors.InvalidInputBackColor;
             }
         }
+
+        /// <summary>
+        /// Метод поиска максимального рейтинга фильма
+        /// </summary>
+        /// <param name="movies"></param>
+        /// <returns></returns>
+        /// 
         private int FindMovieMaxRating(Model.Film[] movies)
         {
             // проверка на заполнение
@@ -111,6 +127,13 @@ namespace LabThreeOfSecondSession.View.Pannels
             }
             return maxIndex;
         }
+
+        /// <summary>
+        /// обработчик нажатие на кнопку поиска фильма с максимальным рейтингом
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void btnFindRating_click(object sender, EventArgs e)
         {
             int index = FindMovieMaxRating(_movies);

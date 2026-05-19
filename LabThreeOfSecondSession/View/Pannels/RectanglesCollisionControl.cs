@@ -19,6 +19,7 @@ namespace LabThreeOfSecondSession.View
         private Rectangle _selectedRectangle;
 
         private List<Panel> _rectanglePanels;
+        
         public RectanglesCollisionControl()
         {
             InitializeComponent();
@@ -27,10 +28,12 @@ namespace LabThreeOfSecondSession.View
             _selectedRectangle = null;
             _rectanglePanels = new List<Panel>();
 
-
-
         }
 
+        /// <summary>
+        /// метод для выбора прямоугольника из списка listBox
+        /// </summary>
+        
         private void RectangleListBoxNew_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxRectanglesNew.SelectedIndex == -1 || _rectangleList.Count == 0)
@@ -46,7 +49,9 @@ namespace LabThreeOfSecondSession.View
             UpdateRectangleInfo(_selectedRectangle);
         }
 
-        // ===================  lab 5 ==============//
+        /// <summary>
+        /// метод добавления новых прямоугольников в список listBox
+        /// </summary>
 
         private void btnAdd_click(object sender, EventArgs e)
         {
@@ -59,9 +64,13 @@ namespace LabThreeOfSecondSession.View
             listBoxRectanglesNew.Items.Add(displayString);
 
 
-            DrawRectangles();
-            FindCollisions();
+            DrawRectangles(); // вывоз метода отображения прямоугольника
+            FindCollisions(); // вывоз метода поиска пересечения
         }
+
+        /// <summary>
+        /// метод удаления прямоугольников из списка listBox
+        /// </summary>
 
         private void btnDel_click(object sender, EventArgs e)
         {
@@ -91,9 +100,10 @@ namespace LabThreeOfSecondSession.View
                 listBoxRectanglesNew.SelectedIndex = 0;
             }
 
-            DrawRectangles();
-            FindCollisions();
+            DrawRectangles(); // вывоз метода отображения прямоугольника
+            FindCollisions(); // вывоз метода поиска пересече
         }
+
         /// <summary>
         ///  метод обновления listBox
         /// </summary>
@@ -109,6 +119,12 @@ namespace LabThreeOfSecondSession.View
             listBoxRectanglesNew.Items[index] = newDisplayString;
         }
 
+        /// <summary>
+        /// метод изменения Ширины прямоугольника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        
         private void textBoxWidth2_TextChanged(object sender, EventArgs e)
         {
             if (_selectedRectangle == null) return;
@@ -119,9 +135,9 @@ namespace LabThreeOfSecondSession.View
                 _selectedRectangle.Width = newWidth;
                 textBoxWidth2.BackColor = AppColors.ValidInputBackColor;
 
-                UpdateListBoxItem();
-                DrawRectangles();
-                FindCollisions();
+                UpdateListBoxItem(); // вызов метода обновления списка прямоугольников
+                DrawRectangles(); // вывоз метода отображения прямоугольника
+                FindCollisions(); // вывоз метода поиска пересече
             }
             catch
             {
@@ -129,6 +145,12 @@ namespace LabThreeOfSecondSession.View
             }
         }
 
+        /// <summary>
+        /// метод изменения высоты прямоугольника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        
         private void textBoxHeight2_TextChanged(object sender, EventArgs e)
         {
             if (_selectedRectangle == null) return;
@@ -139,15 +161,21 @@ namespace LabThreeOfSecondSession.View
                 _selectedRectangle.Length = newHeight;
                 textBoxHeight2.BackColor = AppColors.ValidInputBackColor;
 
-                UpdateListBoxItem();
-                DrawRectangles();
-                FindCollisions();
+                UpdateListBoxItem(); // вызов метода обновления списка прямоугольников
+                DrawRectangles(); // вывоз метода отображения прямоугольника
+                FindCollisions(); // вывоз метода поиска пересече
             }
             catch
             {
                 textBoxHeight2.BackColor = AppColors.InvalidInputBackColor;
             }
         }
+
+        /// <summary>
+        /// метод изменения координаты по X
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void textBoxPosX_TextChanged(object sender, EventArgs e)
         {
@@ -169,6 +197,12 @@ namespace LabThreeOfSecondSession.View
             }
         }
 
+
+        /// <summary>
+        /// метод изменения координаты по Y
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBoxPosY_TextChanged(object sender, EventArgs e)
         {
             if (_selectedRectangle == null) return;
@@ -189,6 +223,11 @@ namespace LabThreeOfSecondSession.View
             }
         }
 
+
+        /// <summary>
+        /// очищает все поля ввода информации о прямоугольнике
+        /// </summary>
+
         private void ClearRectangleInfo()
         {
             textBoxHeight2.Text = "";
@@ -202,6 +241,11 @@ namespace LabThreeOfSecondSession.View
             textBoxPosX.BackColor = AppColors.ValidInputBackColor;
             textBoxPosY.BackColor = AppColors.ValidInputBackColor;
         }
+
+        /// <summary>
+        /// обновляет поля ввода информацией о выбранном прямоугольнике
+        /// </summary>
+        /// <param name="rectangle"></param>
 
         private void UpdateRectangleInfo(Rectangle rectangle)
         {

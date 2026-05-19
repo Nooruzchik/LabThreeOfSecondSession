@@ -17,6 +17,8 @@ namespace LabThreeOfSecondSession.View.Pannels
         {
             InitializeComponent();
 
+            // выводит в listBox все названия классов 
+
             EnumsListBox.DisplayMember = "Name"; // выводит только имена перечислений вместо значений
             EnumsListBox.Items.Add(typeof(Colorix)); // вывод перечисления в EnumsListBox
             EnumsListBox.Items.Add(typeof(Weekday));
@@ -30,6 +32,7 @@ namespace LabThreeOfSecondSession.View.Pannels
         /// <summary>
         /// вывод значений из пречислений во второй список ValuesListBox
         /// </summary>
+        
         private void EnumsListBox_Changed(object sender, EventArgs e)
         {
             Type selectedEnum = EnumsListBox.SelectedItem as Type; // выбор из списака EnumsListBox
@@ -44,9 +47,11 @@ namespace LabThreeOfSecondSession.View.Pannels
                 }
             }
         }
+
         /// <summary>
         /// вывод числового значения соответсвующего значения
         /// </summary>
+        
         private void ValueListBox_Changed(object sender, EventArgs e)
         {
             var selectedValue = ValuesListBox.SelectedItem;

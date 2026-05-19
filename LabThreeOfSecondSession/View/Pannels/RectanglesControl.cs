@@ -36,12 +36,19 @@ namespace LabThreeOfSecondSession.View.Pannels
                 _rectangles[i] = new Model.Geometry.Rectangle(length, width, color, centerX, centerY); // вызывает класс _rectangle
             }
 
-
-            for (int i = 0; i < _rectangles.Length; i++) // цикл для нумерации прямоугольников
+            // цикл для нумерации прямоугольников
+            for (int i = 0; i < _rectangles.Length; i++) 
             {
-                listBoxRectangles.Items.Add($"Rectangle {i + 1}"); // добавляет нумерованне прямоугольники в listbox
+                // добавляет нумерованне прямоугольники в listbox
+                listBoxRectangles.Items.Add($"Rectangle {i + 1}");
             }
         }
+
+        /// <summary>
+        /// обрабатывает изменение выбранного элемента в списке прямоугольников
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {

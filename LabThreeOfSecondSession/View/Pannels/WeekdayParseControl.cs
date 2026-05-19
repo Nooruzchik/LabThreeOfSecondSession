@@ -19,7 +19,11 @@ namespace LabThreeOfSecondSession.View.Pannels
         }
 
         
-
+        /// <summary>
+        /// обрабатывает событие нажатия на кнопку Parse.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonParse_Click(object sender, EventArgs e)
         {
             string userText = textBoxForWeek.Text;
