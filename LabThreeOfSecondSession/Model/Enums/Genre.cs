@@ -8,9 +8,9 @@ namespace LabTwoOfSecondSession.Model.Enums
 {
     public enum Genre
     {
-        fullTime,
-        correspondence,
-        evening,
-        distanceLearning
+        Horror,
+        Action, 
+        Fantasy,
+        Science
     }
 }

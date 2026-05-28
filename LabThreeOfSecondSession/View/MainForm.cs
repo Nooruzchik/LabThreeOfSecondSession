@@ -1,6 +1,5 @@
 using LabThreeOfSecondSession.Model.Geometry;
 using LabTwoOfSecondSession.Model.Enums;
-using Rectangle = LabThreeOfSecondSession.Model.Geometry.Rectangle;
 
 namespace LabThreeOfSecondSession
 {
