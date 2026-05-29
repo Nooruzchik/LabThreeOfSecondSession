@@ -10,7 +10,7 @@ using System.Text.Json;
 namespace LabThreeOfSecondSession.Model
 {
     /// <summary>
-    /// Предоставляет методы для сохранения и загрузки списка книг в файл.
+    /// Предоставляет методы для сохранения и загрузки списка книг в файл
     /// </summary
     public static class FileStorage
     {

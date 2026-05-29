@@ -24,7 +24,7 @@ namespace LabThreeOfSecondSession.View.Pannels
         }
 
         /// <summary>
-        /// Инициализирует элемент управления: загружает данные, настраивает ComboBox, обновляет список.
+        /// Инициализирует элемент управления: загружает данные, настраивает ComboBox, обновляет список
         /// </summary>
         private void InitializeControl()
         {
@@ -40,7 +40,7 @@ namespace LabThreeOfSecondSession.View.Pannels
         }
 
         /// <summary>
-        /// Обновляет список книг в ListBox с сортировкой по алфавиту.
+        /// Обновляет список книг в ListBox с сортировкой по алфавиту
         /// </summary>
         private void UpdateBooksList()
         {
@@ -51,7 +51,7 @@ namespace LabThreeOfSecondSession.View.Pannels
         }
 
         /// <summary>
-        /// Отображает данные книги в полях ввода.
+        /// Отображает данные книги в полях ввода
         /// </summary>
         private void DisplayBook(Book book)
         {
@@ -63,7 +63,7 @@ namespace LabThreeOfSecondSession.View.Pannels
         }
 
         /// <summary>
-        /// Очищает все поля ввода.
+        /// Очищает все поля ввода
         /// </summary>
         private void ClearInputFields()
         {
@@ -72,11 +72,13 @@ namespace LabThreeOfSecondSession.View.Pannels
             textBoxYearMade.Text = "";
             textBoxCntPage.Text = "";
             if (comboBoxGenre.Items.Count > 0)
+            {  
                 comboBoxGenre.SelectedIndex = 0;
+            }
         }
 
         /// <summary>
-        /// Проверяет корректность введённых данных и подсвечивает поля.
+        /// Проверяет корректность введённых данных и подсвечивает поля
         /// </summary>
         private bool ValidateFields()
         {
@@ -130,7 +132,7 @@ namespace LabThreeOfSecondSession.View.Pannels
         }
 
         /// <summary>
-        /// Обработчик выбора книги в списке.
+        /// Обработчик выбора книги в списке
         /// </summary>
         private void listOFBook_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -146,7 +148,7 @@ namespace LabThreeOfSecondSession.View.Pannels
         }
 
         /// <summary>
-        /// Обработчик изменения текста в полях – вызывает валидацию.
+        /// Обработчик изменения текста в полях – вызывает валидацию
         /// </summary>
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
@@ -169,7 +171,7 @@ namespace LabThreeOfSecondSession.View.Pannels
         }
 
         /// <summary>
-        /// Добавляет новую книгу.
+        /// Добавляет новую книгу
         /// </summary>
         private void btnAdd_click(object sender, EventArgs e)
         {
@@ -203,7 +205,7 @@ namespace LabThreeOfSecondSession.View.Pannels
         }
 
         /// <summary>
-        /// Редактирует текущую выбранную книгу.
+        /// Редактирует текущую выбранную книгу
         /// </summary>
         private void btnEdit_click(object sender, EventArgs e)
         {
@@ -240,7 +242,7 @@ namespace LabThreeOfSecondSession.View.Pannels
         }
 
         /// <summary>
-        /// Удаляет текущую выбранную книгу.
+        /// Удаляет текущую выбранную книгу
         /// </summary>
         private void btnDelete_click(object sender, EventArgs e)
         {

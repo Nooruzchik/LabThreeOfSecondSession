@@ -11,7 +11,7 @@ namespace LabThreeOfSecondSession.Model
     /// Хранит данные о книге.
     /// </summary>
     /// <summary>
-    /// Представляет книгу с названием, автором, годом выпуска, количеством страниц и жанром.
+    /// Представляет книгу с названием, автором, годом выпуска, количеством страниц и жанром
     /// </summary>
     public class Book
     {
@@ -22,7 +22,7 @@ namespace LabThreeOfSecondSession.Model
         private Genre _genre;
 
         /// <summary>
-        /// Возвращает и задаёт название книги. Не должно быть пустым и не более 100 символов.
+        /// Возвращает и задаёт название книги. Не должно быть пустым и не более 100 символов
         /// </summary>
         public string Title
         {
@@ -38,7 +38,7 @@ namespace LabThreeOfSecondSession.Model
         }
 
         /// <summary>
-        /// Возвращает и задаёт год выпуска. Не может превышать текущий год.
+        /// Возвращает и задаёт год выпуска. Не может превышать текущий год
         /// </summary>
         public int Year
         {
@@ -53,7 +53,7 @@ namespace LabThreeOfSecondSession.Model
         }
 
         /// <summary>
-        /// Возвращает и задаёт автора. Не должно быть пустым.
+        /// Возвращает и задаёт автора. Не должно быть пустым
         /// </summary>
         public string Author
         {
@@ -67,7 +67,7 @@ namespace LabThreeOfSecondSession.Model
         }
 
         /// <summary>
-        /// Возвращает и задаёт количество страниц. Должно быть строго положительным.
+        /// Возвращает и задаёт количество страниц. Должно быть строго положительным
         /// </summary>
         public int Pages
         {
@@ -81,7 +81,7 @@ namespace LabThreeOfSecondSession.Model
         }
 
         /// <summary>
-        /// Возвращает и задаёт жанр книги.
+        /// Возвращает и задаёт жанр книги
         /// </summary>
         public Genre Genre
         {
